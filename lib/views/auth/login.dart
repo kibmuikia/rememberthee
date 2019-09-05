@@ -11,11 +11,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Contact'),
+        title: new Text('Sign In'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(
-        child: Form( 
+        child: Form(
           key: _formKey,
           child: Column(
             children: <Widget>[
@@ -59,8 +59,8 @@ class _LoginPageState extends State<LoginPage> {
           ),
             ],
           ))
-      
-        
+
+
       ),
     );
   }

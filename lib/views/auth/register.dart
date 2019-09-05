@@ -10,7 +10,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Contact'),
+        title: new Text('Sign Up'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(

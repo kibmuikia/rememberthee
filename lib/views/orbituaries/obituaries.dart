@@ -10,7 +10,7 @@ class _ListObituariesPageState extends State<ListObituariesPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Contact'),
+        title: new Text('Obituaries'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(

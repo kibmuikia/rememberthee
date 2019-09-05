@@ -10,7 +10,7 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Contact'),
+        title: new Text('Contact Us'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(

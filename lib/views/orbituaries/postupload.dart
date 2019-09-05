@@ -10,7 +10,7 @@ class _UploadPageState extends State<UploadPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Contact'),
+        title: new Text('Upload Orbituary'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(
