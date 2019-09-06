@@ -53,28 +53,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   }),
               new ListTile(
                   title: new Text("Post Obituary"),
-                  trailing: new Icon(Icons.info),
+                  trailing: new Icon(Icons.cloud_upload),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/upload');
                   }),
               new ListTile(
                   title: new Text("View Obituaries"),
-                  trailing: new Icon(Icons.info),
+                  trailing: new Icon(Icons.view_list),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/view');
                   }),
               new ListTile(
                   title: new Text("Register"),
-                  trailing: new Icon(Icons.info),
+                  trailing: new Icon(Icons.account_circle),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/register');
                   }),
               new ListTile(
                   title: new Text("Login"),
-                  trailing: new Icon(Icons.info),
+                  trailing: new Icon(Icons.account_circle),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/login');
