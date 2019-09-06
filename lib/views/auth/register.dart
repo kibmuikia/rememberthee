@@ -16,7 +16,7 @@ class _RegisterPageState extends State<RegisterPage> {
   User newUser = new User();
 
   void processSignUp() async {
-    // var url = "http://127.0.0.1/remthee/process_signup.php";
+    // https://rememberthee.com/android/
     var url = "https://rememberthee.com/android/process_signup.php";
 
     final FormState form = _formKey.currentState;
@@ -50,9 +50,13 @@ class _RegisterPageState extends State<RegisterPage> {
           // print(response.reasonPhrase);
           print(response.body);
         } catch(e) {
-          print("Server Error !!!");
+          print('\n');
+          print("\t\tServer Error !!!");
           print(e);
+          print(e.message);
+          print('\n');
           throw Exception('Sign-Up Error :: '+ e );
+          print('\n');
         }
       }//end-else-pwd-check
     }//end-else-form-valid
