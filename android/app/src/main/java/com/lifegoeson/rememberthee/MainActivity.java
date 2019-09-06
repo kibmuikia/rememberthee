@@ -1,4 +1,4 @@
-package com.example.navigation;
+package com.lifegoeson.rememberthee;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

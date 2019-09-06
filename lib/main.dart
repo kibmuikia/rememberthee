@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'routing.dart';
 
-// import 'home.dart';
-// import 'about.dart';
-// import 'contact.dart';
-// import 'login.dart';
-// import 'obituaries.dart';
-// import 'register.dart';
-// import 'postupload.dart';
-
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
