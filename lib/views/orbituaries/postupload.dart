@@ -18,6 +18,7 @@ class _UploadPageState extends State<UploadPage> {
       //   child: new Text("Upload Page", style: new TextStyle(fontSize: 35.0)),
       // ),
       body: new Center(
+        child:SingleChildScrollView(
         child:Container(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
@@ -84,6 +85,7 @@ class _UploadPageState extends State<UploadPage> {
               )
               )
         ),
+      ),
       ),
       ),
     );

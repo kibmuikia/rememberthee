@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: new Center(
           // <<<<<<< HEAD
+          child:SingleChildScrollView(
           child:Container(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
@@ -84,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
               )
                )
               ),
+      ),
 // =======
       // child: Form(
       //     key: _formKey,

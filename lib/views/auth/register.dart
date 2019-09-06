@@ -15,6 +15,7 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(
+        child:SingleChildScrollView(
         child:Container(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
@@ -130,6 +131,7 @@ class _RegisterPageState extends State<RegisterPage> {
               )
         ),
         ),
+      ),
       ),
     );
   }
