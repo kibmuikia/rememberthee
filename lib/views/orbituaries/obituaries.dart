@@ -14,7 +14,8 @@ class _ListObituariesPageState extends State<ListObituariesPage> {
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(
-        child: new Text("List Obituaries Page", style: new TextStyle(fontSize: 35.0)),
+        child: new Text("List Obituaries Page",
+            style: new TextStyle(fontSize: 35.0)),
       ),
     );
   }

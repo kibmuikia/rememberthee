@@ -16,22 +16,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Rememberthee Application',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // home: new MyHomePage(),
-      initialRoute: '/',
-      routes: routes
-      // routes: <String, WidgetBuilder>{
-      //   '/home': (BuildContext context) => new MyHomePage(),
-      //   '/about': (BuildContext context) => new AboutPage(),
-      //   '/contact': (BuildContext context) => new ContactPage(),
-      //   '/upload': (BuildContext context) => new UploadPage(),
-      //   '/view': (BuildContext context) => new ListObituariesPage(),
-      //   '/register': (BuildContext context) => new RegisterPage(),
-      //   '/login': (BuildContext context) => new LoginPage(),
-      // },
-    );
+        title: 'Rememberthee Application',
+        theme: new ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        // home: new MyHomePage(),
+        initialRoute: '/',
+        routes: routes
+        // routes: <String, WidgetBuilder>{
+        //   '/home': (BuildContext context) => new MyHomePage(),
+        //   '/about': (BuildContext context) => new AboutPage(),
+        //   '/contact': (BuildContext context) => new ContactPage(),
+        //   '/upload': (BuildContext context) => new UploadPage(),
+        //   '/view': (BuildContext context) => new ListObituariesPage(),
+        //   '/register': (BuildContext context) => new RegisterPage(),
+        //   '/login': (BuildContext context) => new LoginPage(),
+        // },
+        );
   }
 }

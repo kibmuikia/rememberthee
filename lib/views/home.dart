@@ -17,53 +17,62 @@ class _MyHomePageState extends State<MyHomePage> {
           child: new ListView(
             children: <Widget>[
               new DrawerHeader(
-              decoration:BoxDecoration(
-                gradient: LinearGradient(colors:<Color>[
-                  Colors.deepOrange,
-                  Colors.orangeAccent
-                ]),
-              ),
-              child:Container(
-                child:Column(children: <Widget>[
-                  Material(
-                    borderRadius:BorderRadius.all(Radius.circular(50.0)),
-                    elevation:10,
-                    child: Image.asset('assets/remthee.jpg', width:100, height:100) ,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: <Color>[Colors.deepOrange, Colors.orangeAccent]),
+                ),
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Material(
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                        elevation: 10,
+                        child: Image.asset('assets/remthee.jpg',
+                            width: 100, height: 100),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Rememberthee',
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(padding: EdgeInsets.all(8.0),
-                  child:Text('Rememberthee', ),
-                  ),
-                    
-                ],),
-              ),
-              
+                ),
               ),
               new ListTile(
-                title: new Text("WELCOME"),
+                title: new Text("Welcome To Rememberthee"),
               ),
               new Divider(),
-               new ListTile(
+              new ListTile(
+                  title: new Text("Home"),
+                  trailing: new Icon(Icons.home),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/');
+                  }),
+              new ListTile(
                   title: new Text("Post Obituary"),
                   trailing: new Icon(Icons.info),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/upload');
                   }),
-                   new ListTile(
+              new ListTile(
                   title: new Text("View Obituaries"),
                   trailing: new Icon(Icons.info),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/view');
                   }),
-                   new ListTile(
+              new ListTile(
                   title: new Text("Register"),
                   trailing: new Icon(Icons.info),
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/register');
                   }),
-                   new ListTile(
+              new ListTile(
                   title: new Text("Login"),
                   trailing: new Icon(Icons.info),
                   onTap: () {
