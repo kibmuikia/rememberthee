@@ -55,7 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
           showMessage(response.body, Colors.green);
           form.reset();
         } catch (e) {
-          print("\t\tServer Error !!!");
+          print("\t\tError !!!");
           print(e);
           print(e.message);
           print('\n');

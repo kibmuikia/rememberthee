@@ -43,9 +43,9 @@ class _LoginPageState extends State<LoginPage> {
         showMessage(response.body, Colors.green);
         form.reset();
       } catch (e) {
-        print("\t\tServer Error !!!");
+        print("\t\tError !!!");
         print(e);
-        print(e.message);
+        // print(e.message);
         print('\n');
         throw Exception('ERROR__Sign-IN :: ' + e);
       }
@@ -141,53 +141,6 @@ class _LoginPageState extends State<LoginPage> {
                           ],
                         ))))),
       ),
-// =======
-      // child: Form(
-      //     key: _formKey,
-      //     child: Column(
-      //       children: <Widget>[
-      //         TextFormField(
-      //           decoration: InputDecoration(
-      //             labelText: "Enter your username/email",
-      //             hoverColor: Colors.lightBlueAccent,
-      //           ),
-      //           validator: (value) {
-      //             if (value.isEmpty) {
-      //               return 'Please enter username';
-      //             }
-      //             return null;
-      //           },
-      //         ),
-      //         TextFormField(
-      //           decoration: InputDecoration(
-      //             labelText: 'Enter your password',
-      //             hoverColor: Colors.lightBlueAccent,
-      //           ),
-      //           validator: (value) {
-      //             if (value.isEmpty) {
-      //               return 'Please enter your password';
-      //             }
-      //             return null;
-      //           },
-      //         ),
-      //         Padding(
-      //           padding: const EdgeInsets.symmetric(vertical: 16.0),
-      //           child: RaisedButton(
-      //             onPressed: () {
-      //               // Validate returns true if the form is valid, or false
-      //               // otherwise.
-      //               if (_formKey.currentState.validate()) {
-      //                 // If the form is valid, display a Snackbar.
-      //                 Scaffold.of(context).showSnackBar(
-      //                     SnackBar(content: Text('Processing Data')));
-      //               }
-      //             },
-      //             child: Text('Submit'),
-      //           ),
-      //         ),
-      //       ],
-      //     ))),
-// >>>>>>> devkib
     );
   }
 }
