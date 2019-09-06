@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                       .showSnackBar(SnackBar(content: Text('Processing Data')));
                 }
               },
-              child: Text('Submit'),
+              child: Text('Login'),
             ),
           ),
             ],
