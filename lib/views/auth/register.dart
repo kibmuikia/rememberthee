@@ -140,7 +140,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             //   }
                             //   return null;
                             // },
-                            validator: (value) => Validators.isValidEmail(value) ? null : 'Please enter a valid email address',
+                            validator: (value) => Validators.isValidEmail(value)
+                                ? null
+                                : 'Please enter a valid email address',
                             onSaved: (val) => newUser.email = val,
                           ),
                         ),
@@ -203,19 +205,18 @@ class _RegisterPageState extends State<RegisterPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[  
                             RaisedButton(
-                            color: Colors.green,
-                            textColor: Colors.white,
-                            onPressed: processSignUp,
-                            child: Text('Register'),
-                          ),
-                          RaisedButton(
-                            color: Colors.red,
-                            textColor: Colors.white,
-                            onPressed: () => _formKey.currentState.reset(),
-                            child: Text('Reset Form'),
-                          ), 
-                            ]
-                       ) ,
+                              color: Colors.green,
+                              textColor: Colors.white,
+                              onPressed: processSignUp,
+                              child: Text('Register'),
+                            ),
+                            RaisedButton(
+                              color: Colors.red,
+                              textColor: Colors.white,
+                              onPressed: () => _formKey.currentState.reset(),
+                              child: Text('Reset Form'),
+                            ),
+                          ]),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -225,9 +226,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (BuildContext context) => LoginPage(),
-                                  )
-                              ),
+                                  builder: (BuildContext context) =>
+                                      LoginPage(),
+                                )),
                             child: Text('To Login'),
                           ),
                         ),

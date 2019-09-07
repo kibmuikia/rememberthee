@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
         throw Exception('ERROR__Sign-IN :: ' + e);
       }
     }
-  }//end-processSignIn
+  } //end-processSignIn
 
   void showMessage(String message, [MaterialColor color = Colors.red]) {
     _scaffoldKey.currentState.showSnackBar(
@@ -115,32 +115,30 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              child:Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  RaisedButton(
-                                onPressed: processSignIn,
-                                textColor: Colors.white,
-                                color: Colors.lightBlueAccent,
-                                child: Text('Sign In'),
-                              ),
-                               RaisedButton(
-                            color: Colors.orangeAccent,
-                            textColor: Colors.white,
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) => RegisterPage(),
-                                  )
-                              ),
-                            child: Text('No Account, Sign Up'),
-                          ),
-                                ],
-                              ) 
-                            ),
-                          
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                                child: Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    RaisedButton(
+                                      onPressed: processSignIn,
+                                      textColor: Colors.white,
+                                      color: Colors.lightBlueAccent,
+                                      child: Text('Sign In'),
+                                    ),
+                                    RaisedButton(
+                                      color: Colors.orangeAccent,
+                                      textColor: Colors.white,
+                                      onPressed: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                RegisterPage(),
+                                          )),
+                                      child: Text('No Account, Sign Up'),
+                                    ),
+                                  ],
+                                )),
                           ],
                         ))))),
       ),
