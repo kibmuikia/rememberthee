@@ -201,22 +201,23 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
-                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[  
-                            RaisedButton(
-                              color: Colors.green,
-                              textColor: Colors.white,
-                              onPressed: processSignUp,
-                              child: Text('Register'),
-                            ),
-                            RaisedButton(
-                              color: Colors.red,
-                              textColor: Colors.white,
-                              onPressed: () => _formKey.currentState.reset(),
-                              child: Text('Reset Form'),
-                            ),
-                          ]),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                RaisedButton(
+                                  color: Colors.green,
+                                  textColor: Colors.white,
+                                  onPressed: processSignUp,
+                                  child: Text('Register'),
+                                ),
+                                RaisedButton(
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  onPressed: () =>
+                                      _formKey.currentState.reset(),
+                                  child: Text('Reset Form'),
+                                ),
+                              ]),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),

@@ -93,44 +93,42 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/contact');
                   }),
-                  new ExpansionTile(
-                      title: Text(
-                    "Accounts",
-                    style: new TextStyle(),
-                    textAlign: TextAlign.center,
-                  ),
-                   trailing: new Icon(Icons.account_circle),
-                  children: <Widget>[
-                    ListTile(
+              new ExpansionTile(
+                title: Text(
+                  "Accounts",
+                  style: new TextStyle(),
+                  textAlign: TextAlign.center,
+                ),
+                trailing: new Icon(Icons.account_circle),
+                children: <Widget>[
+                  ListTile(
                       title: Text(
                         "Register",
                         textAlign: TextAlign.center,
                       ),
-                       trailing: new Icon(Icons.account_circle),
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pushNamed('/register');
-                        }
-                    ),
-                    ListTile(
+                      trailing: new Icon(Icons.account_circle),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pushNamed('/register');
+                      }),
+                  ListTile(
                       title: Text(
                         "Login",
                         textAlign: TextAlign.center,
                       ),
-                       trailing: new Icon(Icons.account_circle),
-                        onTap: () {
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pushNamed('/login');
-                        }
+                      trailing: new Icon(Icons.account_circle),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pushNamed('/login');
+                      }),
+                  ListTile(
+                    title: Text(
+                      "Profile",
+                      textAlign: TextAlign.center,
                     ),
-                     ListTile(
-                      title: Text(
-                        "Profile",
-                        textAlign: TextAlign.center,
-                      ),
-                    ),],),
-
-
+                  ),
+                ],
+              ),
             ],
           ),
         ),
