@@ -116,18 +116,17 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.symmetric(vertical: 16.0),
-                              child: RaisedButton(
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child:Row(
+                                children: <Widget>[
+                                  RaisedButton(
                                 onPressed: processSignIn,
                                 textColor: Colors.white,
                                 color: Colors.lightBlueAccent,
                                 child: Text('Sign In'),
                               ),
-                            ),
-                            Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          child: RaisedButton(
-                            color: Colors.orange,
+                               RaisedButton(
+                            color: Colors.orangeAccent,
                             textColor: Colors.white,
                             onPressed: () => Navigator.push(
                                 context,
@@ -137,7 +136,10 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             child: Text('No Account, Sign Up'),
                           ),
-                        ),
+                                ],
+                              ) 
+                            ),
+                          
                           ],
                         ))))),
       ),
