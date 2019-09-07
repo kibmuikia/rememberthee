@@ -41,10 +41,12 @@ class _LoginPageState extends State<LoginPage> {
         print(response.statusCode);
         print(response.body);
         if (response.body == "Invalid_User") {
-          showMessage(response.body);
+          showMessage("Error: Invalid User");
           throw Exception('Error: Invalid User');
+        } else if( response.body == "Invalid_Password" ) {
+          showMessage("Error: Invalid Password");
+          throw Exception('Error: Invalid Password');
         } else {
-          form.reset();
           Map userdecoded = jsonDecode(response.body);
           confirmedUser.fname = userdecoded['fname'];
           confirmedUser.lname = userdecoded['lname'];
@@ -54,6 +56,7 @@ class _LoginPageState extends State<LoginPage> {
           var message =
               'Welcome, ${confirmedUser.fname}[ ${confirmedUser.email} ]';
           showMessage(message, Colors.green);
+          form.reset();
         }
       } catch (e) {
         print("\t\tError !!!");
