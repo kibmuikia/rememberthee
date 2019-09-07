@@ -65,39 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/view');
                   }),
-              new ListTile(
-                  title: new Text("Register"),
-                  trailing: new Icon(Icons.account_circle),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/register');
-                  }),
-              new ListTile(
-                  title: new Text("Login"),
-                  trailing: new Icon(Icons.account_circle),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/login');
-                  }),
-              new ListTile(
-                  title: new Text("About"),
-                  trailing: new Icon(Icons.info),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/about');
-                  }),
-              new ListTile(
-                  title: new Text("Contact"),
-                  trailing: new Icon(Icons.phone),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/contact');
-                  }),
-              new ExpansionTile(
+               new ExpansionTile(
                 title: Text(
-                  "Accounts",
-                  style: new TextStyle(),
-                  textAlign: TextAlign.center,
+                  "Accounts"
                 ),
                 trailing: new Icon(Icons.account_circle),
                 children: <Widget>[
@@ -126,9 +96,32 @@ class _MyHomePageState extends State<MyHomePage> {
                       "Profile",
                       textAlign: TextAlign.center,
                     ),
+                    trailing: new Icon(Icons.person_outline),
+                  ),
+                   ListTile(
+                    title: Text(
+                      "Logout",
+                      textAlign: TextAlign.center,
+                    ),
+                    trailing: new Icon(Icons.phonelink_erase),
                   ),
                 ],
               ),
+              new ListTile(
+                  title: new Text("About"),
+                  trailing: new Icon(Icons.info),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/about');
+                  }),
+              new ListTile(
+                  title: new Text("Contact"),
+                  trailing: new Icon(Icons.phone),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/contact');
+                  }),
+             
             ],
           ),
         ),
