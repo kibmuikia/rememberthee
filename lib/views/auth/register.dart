@@ -198,8 +198,9 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
                            child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[  
                             RaisedButton(
                             color: Colors.green,

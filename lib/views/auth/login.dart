@@ -118,6 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 4.0),
                               child:Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   RaisedButton(
                                 onPressed: processSignIn,
