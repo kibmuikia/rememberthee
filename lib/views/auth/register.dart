@@ -60,6 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       labelText: 'Enter your password',
                       hoverColor: Colors.lightBlueAccent,
                     ),
+                     obscureText: true,
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Please enter your password';
@@ -72,9 +73,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       labelText: 'Confirm your password',
                       hoverColor: Colors.lightBlueAccent,
                     ),
+                     obscureText: true,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Please enter your password';
+                        return 'Please confirm your password';
                       }
                       return null;
                     },
@@ -91,6 +93,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               SnackBar(content: Text('Processing Data')));
                         }
                       },
+                       textColor: Colors.white,
+                      color: Colors.lightBlueAccent,
                       child: Text('Register'),
                     ),
                   ),

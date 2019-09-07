@@ -35,10 +35,12 @@ class _UploadPageState extends State<UploadPage> {
                     },
                   ),
                   TextFormField(
+                    maxLines: 7,
                     decoration: InputDecoration(
                       labelText:
                           'Write a brief description of your loved one plus the funeral arrangements',
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -59,6 +61,8 @@ class _UploadPageState extends State<UploadPage> {
                               SnackBar(content: Text('Processing Orbituary')));
                         }
                       },
+                      textColor: Colors.white,
+                      color: Colors.lightBlueAccent,
                       child: Text('Submit Orbituary'),
                     ),
                   ),
