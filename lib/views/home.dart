@@ -65,10 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/view');
                   }),
-               new ExpansionTile(
-                title: Text(
-                  "Accounts"
-                ),
+              new ExpansionTile(
+                title: Text("Accounts"),
                 trailing: new Icon(Icons.account_circle),
                 children: <Widget>[
                   ListTile(
@@ -98,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     trailing: new Icon(Icons.person_outline),
                   ),
-                   ListTile(
+                  ListTile(
                     title: Text(
                       "Logout",
                       textAlign: TextAlign.center,
@@ -121,7 +119,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/contact');
                   }),
-             
             ],
           ),
         ),
