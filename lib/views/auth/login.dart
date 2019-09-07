@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'register.dart';
+import 'profile.dart';
 import '../../models/user.dart';
 
 class LoginPage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         if (response.body == "Invalid_User") {
           showMessage("Error: Invalid User");
           throw Exception('Error: Invalid User');
-        } else if( response.body == "Invalid_Password" ) {
+        } else if (response.body == "Invalid_Password") {
           showMessage("Error: Invalid Password");
           throw Exception('Error: Invalid Password');
         } else {
@@ -52,11 +53,18 @@ class _LoginPageState extends State<LoginPage> {
           confirmedUser.lname = userdecoded['lname'];
           confirmedUser.email = userdecoded['email'];
           confirmedUser.phone = userdecoded['phone'];
-          confirmedUser.password = userdecoded['password'];
+          // confirmedUser.password = userdecoded['password'];
           var message =
               'Welcome, ${confirmedUser.fname}[ ${confirmedUser.email} ]';
           showMessage(message, Colors.green);
           form.reset();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ProfilePage(authenticatedUser: confirmedUser),
+            ),
+          );
         }
       } catch (e) {
         print("\t\tError !!!");

@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
+
+import '../../models/user.dart';
 
 class ProfilePage extends StatefulWidget {
+  final User authenticatedUser;
+  ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
+
   @override
   _ProfilePageState createState() => new _ProfilePageState();
 }
@@ -12,73 +19,75 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        key: _scaffoldKey,
-        appBar: new AppBar(
-          title: new Text("Your Profile"),
-          backgroundColor: Colors.deepOrangeAccent,
+      key: _scaffoldKey,
+      appBar: new AppBar(
+        title: new Text(widget.authenticatedUser.fname + "'s Profile"),
+        backgroundColor: Colors.deepOrangeAccent,
+      ),
+      drawer: new Drawer(
+          child: new ListView(children: <Widget>[
+        new DrawerHeader(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: <Color>[Colors.deepOrange, Colors.orangeAccent]),
+          ),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Material(
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                  elevation: 10,
+                  child: Image.asset('assets/remthee.jpg',
+                      width: 100, height: 100),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Rememberthee',
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
-        drawer: new Drawer(
-            child: new ListView(children: <Widget>[
-          new DrawerHeader(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: <Color>[Colors.deepOrange, Colors.orangeAccent]),
-            ),
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Material(
-                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                    elevation: 10,
-                    child: Image.asset('assets/remthee.jpg',
-                        width: 100, height: 100),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Rememberthee',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          new ListTile(
-            title: new Text("Welcome To Rememberthee"),
-          ),
-          new Divider(),
-          new ListTile(
-                  title: new Text("Home"),
-                  trailing: new Icon(Icons.home),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/');
-                  }),
-          new ListTile(
-              title: new Text("Your Profile"),
-              trailing: new Icon(Icons.account_circle),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/profile');
-              }),
-          new ListTile(
-              title: new Text("Post Obituary"),
-              trailing: new Icon(Icons.cloud_upload),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/upload');
-              }),
-          new ListTile(
-              title: new Text("View Obituaries"),
-              trailing: new Icon(Icons.view_list),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamed('/view');
-              }),
-        ])),
-        body: new Center(
-          child: new Text("Profile Page", style: new TextStyle(fontSize: 35.0)),
-        ));
+        new ListTile(
+          title: new Text("Welcome To Rememberthee"),
+        ),
+        new Divider(),
+        new ListTile(
+            title: new Text("Home"),
+            trailing: new Icon(Icons.home),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed('/');
+            }),
+        new ListTile(
+            title: new Text("Your Profile"),
+            trailing: new Icon(Icons.account_circle),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed('/profile');
+            }),
+        new ListTile(
+            title: new Text("Post Obituary"),
+            trailing: new Icon(Icons.cloud_upload),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed('/upload');
+            }),
+        new ListTile(
+            title: new Text("View Obituaries"),
+            trailing: new Icon(Icons.view_list),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushNamed('/view');
+            }),
+      ])),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Text(widget.authenticatedUser.email),
+      ),
+    );
   } //end-Widget
 
 } //end-class-_ProfilePageState
