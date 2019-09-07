@@ -140,7 +140,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             //   }
                             //   return null;
                             // },
-                            validator: (value) => Validators.isValidEmail(value) ? null : 'Please enter a valid email address',
+                            validator: (value) => Validators.isValidEmail(value)
+                                ? null
+                                : 'Please enter a valid email address',
                             onSaved: (val) => newUser.email = val,
                           ),
                         ),
@@ -223,9 +225,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (BuildContext context) => LoginPage(),
-                                  )
-                              ),
+                                  builder: (BuildContext context) =>
+                                      LoginPage(),
+                                )),
                             child: Text('To Login'),
                           ),
                         ),

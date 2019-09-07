@@ -80,6 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pushNamed('/login');
                   }),
               new ListTile(
+                  title: new Text("Your Profile"),
+                  trailing: new Icon(Icons.account_circle),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed('/profile');
+                  }),
+              new ListTile(
                   title: new Text("About"),
                   trailing: new Icon(Icons.info),
                   onTap: () {

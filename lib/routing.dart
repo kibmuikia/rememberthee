@@ -4,6 +4,7 @@ import 'views/contact.dart';
 
 import 'views/auth/login.dart';
 import 'views/auth/register.dart';
+import 'views/auth/profile.dart';
 
 import 'views/orbituaries/obituaries.dart';
 import 'views/orbituaries/postupload.dart';
@@ -17,4 +18,5 @@ final routes = {
   '/view': (context) => new ListObituariesPage(),
   '/register': (context) => new RegisterPage(),
   '/login': (context) => new LoginPage(),
+  '/profile': (context) => new ProfilePage(),
 };
