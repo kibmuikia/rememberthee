@@ -15,14 +15,25 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Colors.deepOrangeAccent,
       ),
       body: new Center(
+        child:Container(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Container(
+            color: Colors.white70,
+            margin: new EdgeInsets.symmetric(
+             vertical: 40.0,
+            horizontal: 20.0,
+            ),
           child: Form(
               key: _formKey,
               child: Column(
                 children: <Widget>[
-                  TextFormField(
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: "Enter your email",
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -31,10 +42,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
+                  ),
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: "Enter your username",
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -43,10 +58,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
+                  ),
+                 Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: "Enter your phone number",
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -55,10 +74,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
+                  ),
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Enter your password',
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                      obscureText: true,
                     validator: (value) {
@@ -68,10 +91,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
+                  ),
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Confirm your password',
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                      obscureText: true,
                     validator: (value) {
@@ -80,7 +107,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     },
-                  ),
+                  ),),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: RaisedButton(
@@ -99,7 +126,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ],
-              ))),
+              )
+              )
+        ),
+        ),
+      ),
     );
   }
 }

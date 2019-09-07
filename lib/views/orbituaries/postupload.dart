@@ -18,14 +18,25 @@ class _UploadPageState extends State<UploadPage> {
       //   child: new Text("Upload Page", style: new TextStyle(fontSize: 35.0)),
       // ),
       body: new Center(
+        child:Container(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Container(
+            color: Colors.white70,
+            margin: new EdgeInsets.symmetric(
+             vertical: 40.0,
+            horizontal: 20.0,
+            ),
           child: Form(
               key: _formKey,
               child: Column(
                 children: <Widget>[
-                  TextFormField(
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: "Enter Name of your loved one",
                       hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -33,9 +44,12 @@ class _UploadPageState extends State<UploadPage> {
                       }
                       return null;
                     },
-                  ),
-                  TextFormField(
-                    maxLines: 7,
+                  ),),
+
+                  Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
+                    maxLines: 8,
                     decoration: InputDecoration(
                       labelText:
                           'Write a brief description of your loved one plus the funeral arrangements',
@@ -48,7 +62,7 @@ class _UploadPageState extends State<UploadPage> {
                       }
                       return null;
                     },
-                  ),
+                  ),),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: RaisedButton(
@@ -67,7 +81,11 @@ class _UploadPageState extends State<UploadPage> {
                     ),
                   ),
                 ],
-              ))),
+              )
+              )
+        ),
+      ),
+      ),
     );
   }
 }

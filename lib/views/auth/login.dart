@@ -21,18 +21,20 @@ class _LoginPageState extends State<LoginPage> {
             child: Container(
             color: Colors.white70,
             margin: new EdgeInsets.symmetric(
-             vertical: 20.0,
-            horizontal: 50.0,
+             vertical: 40.0,
+            horizontal: 20.0,
             ),
            child: Form(
               key: _formKey,
               child: Column(
                 children: <Widget>[
-                  TextFormField(
+                Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: "Enter your email",
                       hoverColor: Colors.lightBlueAccent,
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(), 
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
@@ -41,7 +43,10 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
+                ),
+                 Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child:TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Enter your password',
                       hoverColor: Colors.lightBlueAccent,
@@ -55,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     },
                   ),
+                 ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: RaisedButton(
