@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import 'register.dart';
+import 'profile.dart';
 import '../../models/user.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   User signinUser = new User();
+  User confirmedUser = new User();
 
   void processSignIn() async {
     var url = "https://rememberthee.com/android/process_signin.php";
@@ -35,13 +38,34 @@ class _LoginPageState extends State<LoginPage> {
           "regEmail": signinUser.email,
           "regPwd": signinUser.password
         });
-        // print(response);
+        // response response.headers response.reasonPhrase
         print(response.statusCode);
-        // print(response.headers);
-        // print(response.reasonPhrase);
         print(response.body);
-        showMessage(response.body, Colors.green);
-        form.reset();
+        if (response.body == "Invalid_User") {
+          showMessage("Error: Invalid User");
+          throw Exception('Error: Invalid User');
+        } else if (response.body == "Invalid_Password") {
+          showMessage("Error: Invalid Password");
+          throw Exception('Error: Invalid Password');
+        } else {
+          Map userdecoded = jsonDecode(response.body);
+          confirmedUser.fname = userdecoded['fname'];
+          confirmedUser.lname = userdecoded['lname'];
+          confirmedUser.email = userdecoded['email'];
+          confirmedUser.phone = userdecoded['phone'];
+          // confirmedUser.password = userdecoded['password'];
+          var message =
+              'Welcome, ${confirmedUser.fname}[ ${confirmedUser.email} ]';
+          showMessage(message, Colors.green);
+          form.reset();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ProfilePage(authenticatedUser: confirmedUser),
+            ),
+          );
+        }
       } catch (e) {
         print("\t\tError !!!");
         print(e);
@@ -60,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      key: _scaffoldKey,
       appBar: new AppBar(
         title: new Text('Sign In'),
         backgroundColor: Colors.deepOrangeAccent,
@@ -113,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                                 onSaved: (val) => signinUser.password = val,
                               ),
-                            ),
+                            ), //end-password
                             Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),

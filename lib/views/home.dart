@@ -51,20 +51,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed('/');
                   }),
-              new ListTile(
-                  title: new Text("Post Obituary"),
-                  trailing: new Icon(Icons.cloud_upload),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/upload');
-                  }),
-              new ListTile(
-                  title: new Text("View Obituaries"),
-                  trailing: new Icon(Icons.view_list),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed('/view');
-                  }),
+              new ExpansionTile(
+                  title: Text("Obituary"),
+                  trailing: new Icon(Icons.folder),
+                  children: <Widget>[
+                    ListTile(
+                        title: Text("View Obituaries",
+                            textAlign: TextAlign.center),
+                        trailing: new Icon(Icons.view_list),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/view');
+                        }),
+                    ListTile(
+                        title:
+                            Text("Post Obituary", textAlign: TextAlign.center),
+                        trailing: new Icon(Icons.cloud_upload),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushNamed('/upload');
+                        }),
+                  ]),
               new ExpansionTile(
                 title: Text("Accounts"),
                 trailing: new Icon(Icons.account_circle),
@@ -74,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         "Register",
                         textAlign: TextAlign.center,
                       ),
-                      trailing: new Icon(Icons.account_circle),
+                      trailing: new Icon(Icons.account_box),
                       onTap: () {
                         Navigator.of(context).pop();
                         Navigator.of(context).pushNamed('/register');
@@ -90,12 +97,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.of(context).pushNamed('/login');
                       }),
                   ListTile(
-                    title: Text(
-                      "Profile",
-                      textAlign: TextAlign.center,
-                    ),
-                    trailing: new Icon(Icons.person_outline),
-                  ),
+                      title: Text(
+                        "Profile",
+                        textAlign: TextAlign.center,
+                      ),
+                      trailing: new Icon(Icons.person_outline),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pushNamed('/profile');
+                      }),
                   ListTile(
                     title: Text(
                       "Logout",
