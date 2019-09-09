@@ -104,73 +104,170 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
             ]),
       ])),
-      body: Column(
+      body: Stack(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(16.0),
           ),
+          Center(child: CircleAvatar(
+                  backgroundColor: Colors.brown.shade800,
+                  child: Text('New'),
+                ) ,),
           Row(children: <Widget>[
           Column(
                 children: <Widget>[
                   Row(
                     
                  children:<Widget>[
-                Padding(
-                  padding: EdgeInsets.all(3.0),
-                 child:Text("First Name :",style: TextStyle(
-                  color: Colors.grey[800],
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  letterSpacing: 2.0,
-                  
-                  fontSize: 32)
-                 
-                 ), ),
-                  Padding(
-                  padding: EdgeInsets.all(3.0),
-                 child:Text(widget.authenticatedUser.fname,style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.normal,
-                  letterSpacing: 2.0,
-                  
-                  fontSize: 28)
-                 
-                 ), ),
-                 ]
+                
+                 Positioned(
+                  top: 150,    
+                    child: Card(
+                      elevation: 8,
+                      color: Color.fromARGB(255, 0, 255, 0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Container(
+                        width: 260,
+                        height: 340,
+                        child: Column(
+                          children: <Widget>[
+                            Column(
+                               children: <Widget>[
+                                 Row(
+                                   children:<Widget>[
+                                    Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    
+                                   child:Text("Second Name :",style: TextStyle(
+                                    color: Colors.grey[500],
+                                    fontWeight: FontWeight.w300,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 22)
+                                  
+                                  ), ),
+                                     Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                  child:Text(widget.authenticatedUser.lname,style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.w100,
+                                    fontStyle: FontStyle.normal,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 18)
+                                  
+                                  ), ),
+                                  ]
+                                 ),
+                               Row(
+                                   children:<Widget>[
+                                    Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    
+                                   child:Text("First Name :",style: TextStyle(
+                                    color: Colors.grey[500],
+                                    fontWeight: FontWeight.w300,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 22)
+                                  
+                                  ), ),
+                                     Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                  child:Text(widget.authenticatedUser.fname,style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.w100,
+                                    fontStyle: FontStyle.normal,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 18)
+                                  
+                                  ), ),
+                                  ]
+                                 ),
+                                   Row(
+                                   children:<Widget>[
+                                    Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    
+                                   child:Text("Email :",style: TextStyle(
+                                    color: Colors.grey[500],
+                                    fontWeight: FontWeight.w300,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 22)
+                                  
+                                  ), ),
+                                     Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                  child:Text(widget.authenticatedUser.email,style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.w100,
+                                    fontStyle: FontStyle.normal,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 18)
+                                  
+                                  ), ),
+                                  ]
+                                 ),
+                                   Row(
+                                   children:<Widget>[
+                                    Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    
+                                   child:Text("Phone :",style: TextStyle(
+                                    color: Colors.grey[500],
+                                    fontWeight: FontWeight.w300,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 22)
+                                  
+                                  ), ),
+                                     Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                  child:Text(widget.authenticatedUser.phone,style: TextStyle(
+                                    color: Colors.black87,
+                                    fontWeight: FontWeight.w100,
+                                    fontStyle: FontStyle.normal,
+                                    letterSpacing: 2.0,
+                                    
+                                    fontSize: 18)
+                                  
+                                  ), ),
+                                  ]
+                                 ),
+                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                   RaisedButton(
+                                       child: Text("Edit Profile"),
+                                      color: Colors.green,
+                                      textColor: Colors.white,
+                                       onPressed: () => SnackBar(content: Text('Profile EDIT VIEW')),
+                                
+                                ),
+                                   RaisedButton(
+                                       child: Text("Change Password"),
+                                      color: Colors.green,
+                                      textColor: Colors.white,
+                                       onPressed: () => SnackBar(content: Text('Password ChangeView')),
+                                
+                                ),
+                                  ]
+                                 )
+                              ]
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
-            ],
-          ),
-          Row(children: <Widget>[
-          Column(
-                children: <Widget>[
-                  Row(
-                    
-                 children:<Widget>[
-                Padding(
-                  padding: EdgeInsets.all(3.0),
-                 child:Text("Second Name :",style: TextStyle(
-                  color: Colors.grey[800],
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  letterSpacing: 2.0,
-                  
-                  fontSize: 32)
-                 
-                 ), ),
-                  Padding(
-                  padding: EdgeInsets.all(3.0),
-                 child:Text(widget.authenticatedUser.lname,style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.normal,
-                  letterSpacing: 2.0,
-                  
-                  fontSize: 28)
-                 
-                 ), ),
                  ]
                   ),
                 ],
