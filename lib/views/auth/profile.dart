@@ -104,7 +104,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
             ]),
       ])),
-      body: Stack(
+      body: Flex(
+        direction: Axis.horizontal,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
          
          CircleAvatar(
