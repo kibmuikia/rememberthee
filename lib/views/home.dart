@@ -135,5 +135,5 @@ class _MyHomePageState extends State<MyHomePage> {
         body: new Center(
           child: new Text("Home Page", style: new TextStyle(fontSize: 35.0)),
         ));
-  }
-}
+  } //end-Widget
+} //end-class-_MyHomePageState

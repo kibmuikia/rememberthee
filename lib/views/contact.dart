@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/mydrawer.dart';
 
 class ContactPage extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _ContactPageState extends State<ContactPage> {
         title: new Text('Contact Us'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
+      drawer: MyDrawer(),
       body: new Center(
         child: new Text("Contact Page", style: new TextStyle(fontSize: 35.0)),
       ),

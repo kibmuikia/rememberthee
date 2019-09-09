@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
+import '../../components/mydrawer.dart';
+
 import '../../models/user.dart';
 import '../../models/obituary.dart';
 
@@ -24,18 +26,17 @@ class _UploadPageState extends State<UploadPage> {
 
     final FormState form = _formKey.currentState;
 
-    if( !form.validate() ) {
+    if (!form.validate()) {
       showMessage('Form is not valid!  Please review and correct.');
-    } else if( dof == null ) {
+    } else if (dof == null) {
       showMessage('Ensure you have choosen a date');
-    }
-    else {
+    } else {
       form.save();
       ob.postedby = "1";
       print(dof);
       print('\tFirst Name: ${ob.fname}');
       print('\t\tPosted by: [ ${ob.postedby} ]');
-      try{
+      try {
         final response = await http.post(url, body: {
           "obFname": ob.fname,
           "obLname": ob.lname,
@@ -45,22 +46,21 @@ class _UploadPageState extends State<UploadPage> {
         });
         print(response.statusCode);
         print(response.body);
-        if( response.body == "OK" ) {
-          var message =
-              'Successful, [ ${ob.fname} ${ob.lname} ]';
+        if (response.body == "OK") {
+          var message = 'Successful, [ ${ob.fname} ${ob.lname} ]';
           showMessage(message, Colors.green);
           form.reset();
           dof = null;
         } else {
           showMessage('FAILED to register obituary of ${ob.fname} ${ob.lname}');
         }
-      } catch(error) {
+      } catch (error) {
         showMessage('Error in submitting obituary');
         print(error);
         throw Exception('Error[ Submitting Obituary ] :: ' + error);
       }
     }
-  }//end-processObituary
+  } //end-processObituary
 
   void showMessage(String message, [MaterialColor color = Colors.red]) {
     _scaffoldKey.currentState.showSnackBar(
@@ -78,6 +78,7 @@ class _UploadPageState extends State<UploadPage> {
       // body: new Center(
       //   child: new Text("Upload Page", style: new TextStyle(fontSize: 35.0)),
       // ),
+      drawer: MyDrawer(),
       body: new Center(
         child: SingleChildScrollView(
           child: Container(
@@ -148,23 +149,24 @@ class _UploadPageState extends State<UploadPage> {
                         Padding(
                           padding: EdgeInsets.all(15.0),
                           child: FlatButton(
-                            child: Text(
-                              'Select Date of Funeral',
-                              style: TextStyle(color: Colors.blue)
-                            ),
+                            child: Text('Select Date of Funeral',
+                                style: TextStyle(color: Colors.blue)),
                             onPressed: () async {
                               final picked = await showDatePicker(
-                                context: context,
-                                initialDate: new DateTime.now(),
-                                firstDate: new DateTime.now().subtract(new Duration(days:5)),
-                                lastDate: new DateTime.now().add(new Duration(days: 800))
-                                // lastDate: new DateTime(2050),
-                              );
-                              if(picked != null && picked != dof){
-                                setState( () {
+                                  context: context,
+                                  initialDate: new DateTime.now(),
+                                  firstDate: new DateTime.now()
+                                      .subtract(new Duration(days: 5)),
+                                  lastDate: new DateTime.now()
+                                      .add(new Duration(days: 800))
+                                  // lastDate: new DateTime(2050),
+                                  );
+                              if (picked != null && picked != dof) {
+                                setState(() {
                                   // var dofFormatted = new DateFormat('EEEE-dd-MMM-yyyy').format(dof);
-                                  dof = new DateFormat('EEEE-dd-MMM-yyyy').format(picked);
-                                } );
+                                  dof = new DateFormat('EEEE-dd-MMM-yyyy')
+                                      .format(picked);
+                                });
                               }
                               return dof;
                             },
@@ -173,25 +175,24 @@ class _UploadPageState extends State<UploadPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              RaisedButton(
-                                color: Colors.green,
-                                textColor: Colors.white,
-                                onPressed: processObituary,
-                                child: Text('Submit Obituary'),
-                              ),
-                              RaisedButton(
-                                color: Colors.red,
-                                textColor: Colors.white,
-                                onPressed: () {
-                                  _formKey.currentState.reset();
-                                  dof = null;
-                                },
-                                child: Text('Reset Form'),
-                              ),
-                            ]
-                          ),
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                RaisedButton(
+                                  color: Colors.green,
+                                  textColor: Colors.white,
+                                  onPressed: processObituary,
+                                  child: Text('Submit Obituary'),
+                                ),
+                                RaisedButton(
+                                  color: Colors.red,
+                                  textColor: Colors.white,
+                                  onPressed: () {
+                                    _formKey.currentState.reset();
+                                    dof = null;
+                                  },
+                                  child: Text('Reset Form'),
+                                ),
+                              ]),
                         ),
                       ],
                     ))),
