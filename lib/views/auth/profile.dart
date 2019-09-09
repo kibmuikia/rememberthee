@@ -108,16 +108,23 @@ class _ProfilePageState extends State<ProfilePage> {
         //mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
          
-         CircleAvatar(
+         Row(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: <Widget>[
+              CircleAvatar(
                   backgroundColor: Colors.deepOrangeAccent,
                   radius: 47.0,
                   child: Text(widget.authenticatedUser.lname+"  "+widget.authenticatedUser.fname),
                 ) ,
+           ],),
+        
                 Padding(
                         padding: EdgeInsets.fromLTRB(20, 10.0, 20.0, 20.0),
+                        
                       child:Container(
-                        width:MediaQuery.of(context).size.width * 0.80,
-                        height: MediaQuery.of(context).size.height * 0.60,
+                        width:MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.40,
+                      
                          child:Card(
                       elevation: 8,
                       color: Colors.white70,
