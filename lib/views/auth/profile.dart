@@ -104,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
             ]),
       ])),
-      body: Stack(
+      body: Column(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(16.0),
