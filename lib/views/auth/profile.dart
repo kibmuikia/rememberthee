@@ -110,14 +110,14 @@ class _ProfilePageState extends State<ProfilePage> {
          
          CircleAvatar(
                   backgroundColor: Colors.deepOrangeAccent,
-                  radius: 5.0,
+                  radius: 47.0,
                   child: Text(widget.authenticatedUser.lname+"  "+widget.authenticatedUser.fname),
                 ) ,
                 Padding(
                         padding: EdgeInsets.fromLTRB(20, 10.0, 20.0, 20.0),
                       child:Container(
-                        width: 240,
-                        height: 300,
+                        width:MediaQuery.of(context).size.width * 0.80,
+                        height: MediaQuery.of(context).size.height * 0.60,
                          child:Card(
                       elevation: 8,
                       color: Colors.white70,
