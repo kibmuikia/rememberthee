@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import '../../models/user.dart';
 import '../../models/obituary.dart';
 
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
-import 'package:datetime_picker_formfield/time_picker_formfield.dart';
+import 'package:intl/intl.dart';
 
 class UploadPage extends StatefulWidget {
   @override
@@ -15,13 +14,9 @@ class _UploadPageState extends State<UploadPage> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  final dateFormat = DateFormat("EEEE, MMMM d, yyyy 'at' h:mma");
-  final timeFormat = DateFormat("h:mm a");
-  DateTime date;
-  TimeOfDay time;
-
   User confirmedUser = new User();
   Obituary ob = new Obituary();
+  var dof;
 
   void processObituary() async {
     var url = "https://rememberthee.com/android/";
@@ -30,14 +25,19 @@ class _UploadPageState extends State<UploadPage> {
 
     if( !form.validate() ) {
       showMessage('Form is not valid!  Please review and correct.');
-    } else {
+    } else if( dof == null ) {
+      showMessage('Ensure you have choosen a date');
+    }
+    else {
       form.save();
+      // var dofFormatted = new DateFormat('EEEE-dd-MMM-yyyy').format(dof);
+      print(dof);
       try{
         // .
       } catch(error) {
         showMessage('Error in submitting obituary');
         print(error);
-        throw Exception('Error[ Submitting Obituary ] :: ' + e);
+        throw Exception('Error[ Submitting Obituary ] :: ' + error);
       }
     }
   }//end-processObituary
@@ -122,26 +122,34 @@ class _UploadPageState extends State<UploadPage> {
                               }
                               return null;
                             },
+                            onSaved: (val) => ob.description = val,
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.all(15.0),
-                          child: DateTimePickerFormField(
-                            format: dateFormat,
-                            decoration: InputDecoration(labelText: 'Date of Funeral'),
-                            onChanged: (dt) => setState(() => date = dt),
-                          )
+                          child: FlatButton(
+                            child: Text(
+                              'Select Date of Funeral',
+                              style: TextStyle(color: Colors.blue)
+                            ),
+                            onPressed: () async {
+                              final picked = await showDatePicker(
+                                context: context,
+                                initialDate: new DateTime.now(),
+                                firstDate: new DateTime.now().subtract(new Duration(days:5)),
+                                lastDate: new DateTime.now().add(new Duration(days: 800))
+                                // lastDate: new DateTime(2050),
+                              );
+                              if(picked != null && picked != dof){
+                                setState( () {
+                                  // var dofFormatted = new DateFormat('EEEE-dd-MMM-yyyy').format(dof);
+                                  dof = new DateFormat('EEEE-dd-MMM-yyyy').format(picked);
+                                } );
+                              }
+                              return dof;
+                            },
+                          ),
                         ),
-                        SizedBox(height: 16.0),
-                        Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: TimePickerFormField(
-                            format: timeFormat,
-                            decoration: InputDecoration(labelText: 'Time'),
-                            onChanged: (t) => setState(() => time = t),
-                          )
-                        ),
-                        SizedBox(height: 16.0),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Row(
@@ -149,14 +157,17 @@ class _UploadPageState extends State<UploadPage> {
                             children: <Widget>[
                               RaisedButton(
                                 color: Colors.green,
-                                textColor: Color.white,
+                                textColor: Colors.white,
                                 onPressed: processObituary,
                                 child: Text('Submit Obituary'),
                               ),
                               RaisedButton(
                                 color: Colors.red,
-                                textColor: Color.white,
-                                onPressed: () => _formKey.currentState.reset(),
+                                textColor: Colors.white,
+                                onPressed: () {
+                                  _formKey.currentState.reset();
+                                  dof = null;
+                                },
                                 child: Text('Reset Form'),
                               ),
                             ]

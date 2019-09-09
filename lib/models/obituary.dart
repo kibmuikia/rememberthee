@@ -4,4 +4,5 @@ class Obituary {
   String lname = '';
   String description = '';
   String postedby = '';
+  // int dof;
 }
