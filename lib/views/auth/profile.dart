@@ -104,22 +104,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
             ]),
       ])),
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(16.0),
-          ),
+         
          CircleAvatar(
                   backgroundColor: Colors.brown.shade800,
                   child: Text('New'),
                 ) ,
-          Row(children: <Widget>[
-          Column(
-                children: <Widget>[
-                  Row(
-                    
-                 children:<Widget>[
-                
                  Positioned(
                   top: 150,    
                     child: Card(
@@ -268,18 +259,17 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
-                 ]
-                  ),
+                 
                 ],
               ),
-            ],
-          ),
-        ],
+            
+          
+        
         
         
         
         //child: Text(widget.authenticatedUser.email),
-      ),
+      
     );
   } //end-Widget
 
