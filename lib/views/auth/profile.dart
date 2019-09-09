@@ -109,10 +109,10 @@ class _ProfilePageState extends State<ProfilePage> {
           Padding(
             padding: EdgeInsets.all(16.0),
           ),
-          Center(child: CircleAvatar(
+         CircleAvatar(
                   backgroundColor: Colors.brown.shade800,
                   child: Text('New'),
-                ) ,),
+                ) ,
           Row(children: <Widget>[
           Column(
                 children: <Widget>[
