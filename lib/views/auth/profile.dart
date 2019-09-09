@@ -104,9 +104,84 @@ class _ProfilePageState extends State<ProfilePage> {
                   }),
             ]),
       ])),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Text(widget.authenticatedUser.email),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(16.0),
+          ),
+          Row(children: <Widget>[
+          Column(
+                children: <Widget>[
+                  Row(
+                    
+                 children:<Widget>[
+                Padding(
+                  padding: EdgeInsets.all(3.0),
+                 child:Text("First Name :",style: TextStyle(
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  letterSpacing: 2.0,
+                  
+                  fontSize: 32)
+                 
+                 ), ),
+                  Padding(
+                  padding: EdgeInsets.all(3.0),
+                 child:Text(widget.authenticatedUser.fname,style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                  letterSpacing: 2.0,
+                  
+                  fontSize: 28)
+                 
+                 ), ),
+                 ]
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(children: <Widget>[
+          Column(
+                children: <Widget>[
+                  Row(
+                    
+                 children:<Widget>[
+                Padding(
+                  padding: EdgeInsets.all(3.0),
+                 child:Text("Second Name :",style: TextStyle(
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  letterSpacing: 2.0,
+                  
+                  fontSize: 32)
+                 
+                 ), ),
+                  Padding(
+                  padding: EdgeInsets.all(3.0),
+                 child:Text(widget.authenticatedUser.lname,style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                  letterSpacing: 2.0,
+                  
+                  fontSize: 28)
+                 
+                 ), ),
+                 ]
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+        
+        
+        
+        //child: Text(widget.authenticatedUser.email),
       ),
     );
   } //end-Widget
