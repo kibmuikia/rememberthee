@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
+
 import '../../models/user.dart';
 import '../../models/obituary.dart';
-
-import 'package:intl/intl.dart';
 
 class UploadPage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _UploadPageState extends State<UploadPage> {
   var dof;
 
   void processObituary() async {
-    var url = "https://rememberthee.com/android/";
+    var url = "https://rememberthee.com/android/process_obituary.php";
 
     final FormState form = _formKey.currentState;
 
@@ -30,10 +31,29 @@ class _UploadPageState extends State<UploadPage> {
     }
     else {
       form.save();
-      // var dofFormatted = new DateFormat('EEEE-dd-MMM-yyyy').format(dof);
+      ob.postedby = "1";
       print(dof);
+      print('\tFirst Name: ${ob.fname}');
+      print('\t\tPosted by: [ ${ob.postedby} ]');
       try{
-        // .
+        final response = await http.post(url, body: {
+          "obFname": ob.fname,
+          "obLname": ob.lname,
+          "obDescription": ob.description,
+          "obDOF": dof,
+          "obUserId": ob.postedby
+        });
+        print(response.statusCode);
+        print(response.body);
+        if( response.body == "OK" ) {
+          var message =
+              'Successful, [ ${ob.fname} ${ob.lname} ]';
+          showMessage(message, Colors.green);
+          form.reset();
+          dof = null;
+        } else {
+          showMessage('FAILED to register obituary of ${ob.fname} ${ob.lname}');
+        }
       } catch(error) {
         showMessage('Error in submitting obituary');
         print(error);
@@ -82,7 +102,7 @@ class _UploadPageState extends State<UploadPage> {
                             ),
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please enter First Name';
+                                return 'Please enter a valid name';
                               }
                               return null;
                             },
@@ -99,7 +119,7 @@ class _UploadPageState extends State<UploadPage> {
                             ),
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please enter Last Name';
+                                return 'Please enter a valid name';
                               }
                               return null;
                             },
