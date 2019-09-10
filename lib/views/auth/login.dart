@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '../../components/mydrawer.dart';
+
 import 'register.dart';
 import 'profile.dart';
 import '../../models/user.dart';
@@ -89,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
         title: new Text('Sign In'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
+      drawer: MyDrawer(),
       body: new Center(
         // <<<<<<< HEAD
         child: SingleChildScrollView(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../components/mydrawer.dart';
 
 class ListObituariesPage extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _ListObituariesPageState extends State<ListObituariesPage> {
         title: new Text('Obituaries'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
+      drawer: MyDrawer(),
       body: new Center(
         child: new Text("List Obituaries Page",
             style: new TextStyle(fontSize: 35.0)),

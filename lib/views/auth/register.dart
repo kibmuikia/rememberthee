@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../../components/mydrawer.dart';
+
 import 'login.dart';
 import '../../models/user.dart';
 import '../../utils/validators.dart';
@@ -78,6 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
         title: new Text('Sign Up'),
         backgroundColor: Colors.deepOrangeAccent,
       ),
+      drawer: MyDrawer(),
       body: new Center(
         child: SingleChildScrollView(
           child: Container(
