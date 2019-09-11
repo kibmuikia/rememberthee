@@ -21,6 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
              Container(
                margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+               width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
                   margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -29,10 +30,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                    child: Container(
+                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/natiive.png"),
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                     //alignment: Alignment.topCenter,
                   ),
                 ),

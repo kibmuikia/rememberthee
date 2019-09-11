@@ -19,7 +19,10 @@ class _ContactPageState extends State<ContactPage> {
       body:SingleChildScrollView( 
       child: Column(
         children: <Widget>[
-          Text("We value your feedback", style: new TextStyle(fontSize: 14.0,letterSpacing: 2.4, fontWeight: FontWeight.w400)),
+          Padding(
+          padding: EdgeInsets.all(15.0),
+          child:Text("We value your feedback", style: new TextStyle(fontSize: 14.0,letterSpacing: 2.4, fontWeight: FontWeight.w400)),
+          ),
           Form(
                     key: _formKey,
                     child: Column(
