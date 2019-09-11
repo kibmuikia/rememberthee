@@ -19,7 +19,7 @@ class _ContactPageState extends State<ContactPage> {
       body:SingleChildScrollView( 
       child: Column(
         children: <Widget>[
-          Text("We value your feedback/sentiments", style: new TextStyle(fontSize: 17.0)),
+          Text("We value your feedback/sentiments", style: new TextStyle(fontSize: 17.0,fontWeight: FontWeight.w300)),
           Form(
                     key: _formKey,
                     child: Column(
@@ -71,7 +71,7 @@ class _ContactPageState extends State<ContactPage> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 RaisedButton(
                                   color: Colors.green,
