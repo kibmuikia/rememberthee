@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Column(
           children: <Widget>[
              Container(
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width*0.8,
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
                   elevation: 8,
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 8,
           color: Colors.white24,
           child: Container(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width*0.8,
             height: MediaQuery.of(context).size.height * 0.20,
             child: Text("It's the circle of life And it moves us all Through despair and hopeThrough faith and loveTill we find our place On the path unwinding",),
           ),
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 8,
           color: Colors.white54,
           child: Container(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width*0.8,
             height: MediaQuery.of(context).size.height * 0.20,
             child: Form(child: Column(
               children: <Widget>[
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
           elevation: 8,
           color: Colors.white24,
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width*0.8,
         height: MediaQuery.of(context).size.height * 0.20,
 
         child: Row(children: <Widget>[
