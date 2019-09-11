@@ -1,29 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
+
 import 'routing.dart';
+import 'package:rememberthee/mystore/v1/state.dart';
+import 'package:rememberthee/mystore/v1/reducers.dart';
+// import 'package:rememberthee/mystore/v1/mymiddleware/user_middleware.dart';
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // final Store<AppState> store = Store<AppState>(
+  //   appReducer,
+  //   initialState: AppState.initial(),
+  //   middleware: createStoreMiddleware(),
+  // );
+  final store = new Store<AppState>(
+    appReducer,
+    initialState: new AppState(),
+    middleware: [],
+    // middleware: createStoreMiddleware(),
+  ); //end-store
+
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-        title: 'Rememberthee Application',
-        theme: new ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        // home: new MyHomePage(),
-        initialRoute: '/',
-        routes: routes
-        // routes: <String, WidgetBuilder>{
-        //   '/home': (BuildContext context) => new MyHomePage(),
-        //   '/about': (BuildContext context) => new AboutPage(),
-        //   '/contact': (BuildContext context) => new ContactPage(),
-        //   '/upload': (BuildContext context) => new UploadPage(),
-        //   '/view': (BuildContext context) => new ListObituariesPage(),
-        //   '/register': (BuildContext context) => new RegisterPage(),
-        //   '/login': (BuildContext context) => new LoginPage(),
-        // },
-        );
-  }
-}
+  Widget build(BuildContext context) => StoreProvider(
+        store: this.store,
+        child: MaterialApp(
+            title: 'Rememberthee Application',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            initialRoute: '/',
+            routes: routes),
+      ); //end-Widget-new-store
+
+  // This widget is the root of your application.
+  // @override
+  // Widget build(BuildContext context) {
+  //   return new MaterialApp(
+  //       title: 'Rememberthee Application',
+  //       theme: new ThemeData(
+  //         primarySwatch: Colors.blue,
+  //       ), //end-theme
+  //       // home: new MyHomePage(),
+  //       initialRoute: '/',
+  //       routes: routes
+  //     );
+  // }//end-Widget-original
+
+// .
+} //end-class-MyApp
