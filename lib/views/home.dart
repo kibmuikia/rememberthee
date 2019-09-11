@@ -56,48 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text("It's the circle of life And it moves us all Through despair and hopeThrough faith and loveTill we find our place On the path unwinding",),
                   ),
                 ),
-                Card(
-          elevation: 8,
-          color: Colors.white54,
-          child: Container(
-            margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-            height: MediaQuery.of(context).size.height * 0.20,
-            child: Form(child: Column(
-              children: <Widget>[
-                Row(children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child:TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Enter Name',
-                      hoverColor: Colors.lightBlueAccent,
-                      border: OutlineInputBorder(),
-                    ),
-                    
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Name is null';
-                      }
-                      return null;
-                    },
-                    
-                  ), 
-                  ),
-                   Padding(
-                    padding: EdgeInsets.all(10),
-                    child:RaisedButton(  
-                    textColor: Colors.white,
-                    color: Colors.lightBlueAccent,
-                    child: Text('Search'),
-                     onPressed: () => SnackBar(
-                                      content: Text('Searching')),
-                                
-                    ),
-                  ),
-                ],)
-              ],),),
-          ),
-    ),
               ],
                     
             ) ,
