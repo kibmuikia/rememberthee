@@ -5,6 +5,7 @@ import 'package:redux/redux.dart';
 import 'routing.dart';
 import 'package:rememberthee/mystore/v1/state.dart';
 import 'package:rememberthee/mystore/v1/reducers.dart';
+import 'package:rememberthee/mystore/v1/middlewares.dart';
 
 void main() => runApp(new MyApp());
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
   final store = new Store<AppState>(
     appReducer,
     initialState: new AppState(),
-    middleware: [],
+    // middleware: [],
+    middleware: createStoreMiddleware(),
   ); //end-store
 
   @override

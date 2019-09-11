@@ -26,10 +26,23 @@ Account userReducer( Account currentuser, action ) {
     return action.user;
 
     // end-SignInUserAction
+  } else if( action is SignInSuccessfulAction ) {
+    print( '\n\t [SignInSuccessfulAction]' );
+    print( action.user );
+    return action.user;
+
+    // end-SignInSuccessfulAction
+  } else if( action is SignInFailAction ) {
+    print( '\n\t [ SignInFailAction ]' );
+    print( action.error );
+    print( currentuser );
+    return currentuser;
+
+    // end-SignInFailAction
   } else if ( action is SignOutUserAction ) {
-    print( '\t User to be signed-out: $action.user.email' );
-    print( '\t Signing-out user[setting to new User]' );
-    print( '\t email: $currentuser.email' );
+    // print( '\t User to be signed-out: $action.currentuser' );
+    print( '\t Signing-out user[setting to default user state]' );
+    print( '\t user: $currentuser' );
     return currentuser;
 
     // end-SignOutUserAction

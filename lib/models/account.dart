@@ -10,12 +10,17 @@ class Account {
   String email = '';
   String password = '';
 
+  int id;
+  String fname = '';
+  String lname = '';
+  String phone = '';
+
   // Account( { @required this.email, @required this.password } );
   // Account();
 
   @override
   String toString() {
-    return "Account[ email : $email, password: $password ]";
+    return "Account[ id: $id, email : $email ]";
   }
 
 }
