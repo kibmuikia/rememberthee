@@ -26,7 +26,7 @@ class _ContactPageState extends State<ContactPage> {
                       children: <Widget>[
                         Card(
                           elevation: 8,
-                          color: Colors.white12,
+                          color: Colors.white,
                           margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                           child: Column(
                             children: <Widget>[
