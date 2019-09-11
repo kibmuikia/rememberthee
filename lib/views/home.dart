@@ -20,17 +20,17 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
           children: <Widget>[
              Container(
-               margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+               margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
                width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
-                  margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  //margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
                   elevation: 8,
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                    child: Container(
-                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    
                   decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/natiive.png"),
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Card(
           elevation: 8,
-          color: Colors.white54,
+          color: Colors.white,
           child: Container(
             margin: EdgeInsets.fromLTRB(20,10,20,10),
             height: MediaQuery.of(context).size.height * 0.20,
