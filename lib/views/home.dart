@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
               Container(
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    height: MediaQuery.of(context).size.height * 0.20,
+                    height: MediaQuery.of(context).size.height * 0.17,
                      child:Card(
                       elevation: 8,
                       color: Colors.white,
