@@ -14,12 +14,9 @@ import '../../mystore/v1/state.dart';
 import '../../mystore/v1/myactions/user_actions.dart';
 
 class LoginPage extends StatefulWidget {
-  final OnAddCallback callback;
-
-  // LoginPage( callback );
 
   @override
-  _LoginPageState createState() => new _LoginPageState( this.callback );
+  _LoginPageState createState() => new _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -30,10 +27,6 @@ class _LoginPageState extends State<LoginPage> {
   // User signinUser = new User();
   // User confirmedUser = new User();
   String email; String password;
-
-  final OnAddCallback callback;
-
-  _LoginPageState(this.callback);
 
   // void processSignIn() async {
   //   var url = "https://rememberthee.com/android/process_signin.php";
@@ -102,10 +95,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build( BuildContext context ) {
 
-    return new StoreConnector<AppState, callback> (
+    return new StoreConnector<AppState, VoidCallback> (
       converter: ( Store<AppState> store) {
-        return (user) {
-          store.dispatch( new SignInUserAction( user ) );
+        return () {
+          store.dispatch( new SignInUserAction() );
         };
       },//end-convertor
       builder: ( BuildContext context, add ) {

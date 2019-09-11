@@ -5,7 +5,6 @@ import 'package:redux/redux.dart';
 import 'routing.dart';
 import 'package:rememberthee/mystore/v1/state.dart';
 import 'package:rememberthee/mystore/v1/reducers.dart';
-// import 'package:rememberthee/mystore/v1/mymiddleware/user_middleware.dart';
 
 void main() => runApp(new MyApp());
 
@@ -19,12 +18,11 @@ class MyApp extends StatelessWidget {
     appReducer,
     initialState: new AppState(),
     middleware: [],
-    // middleware: createStoreMiddleware(),
   ); //end-store
 
   @override
   Widget build(BuildContext context) => StoreProvider(
-        store: this.store,
+        store: store,
         child: MaterialApp(
             title: 'Rememberthee Application',
             theme: ThemeData(
