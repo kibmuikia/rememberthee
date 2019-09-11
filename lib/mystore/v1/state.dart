@@ -3,7 +3,8 @@ import 'package:rememberthee/models/account.dart';
 
 class AppState {
 
-  final Account user = new Account( email: '', password: '' );
+  // final Account user = new Account( email: null, password: null );
+  final Account user = new Account();
   final bool isLoading;
 
   AppState( {user, this.isLoading = false} );

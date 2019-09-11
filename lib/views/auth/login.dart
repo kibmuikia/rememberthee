@@ -13,7 +13,12 @@ import 'package:rememberthee/models/account.dart';
 import '../../mystore/v1/state.dart';
 import '../../mystore/v1/myactions/user_actions.dart';
 
+typedef OnUserAddedCallback = Function(String email, String password);
+
 class LoginPage extends StatefulWidget {
+
+  // final OnUserAddedCallback callback;
+  // LoginPage( this.callback );
 
   @override
   _LoginPageState createState() => new _LoginPageState();
@@ -27,6 +32,9 @@ class _LoginPageState extends State<LoginPage> {
   // User signinUser = new User();
   // User confirmedUser = new User();
   String email; String password;
+
+  // final OnUserAddedCallback callback;
+  // _LoginPageState( this.callback );
 
   // void processSignIn() async {
   //   var url = "https://rememberthee.com/android/process_signin.php";
@@ -95,13 +103,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build( BuildContext context ) {
 
-    return new StoreConnector<AppState, VoidCallback> (
+    return new StoreConnector<AppState, OnUserAddedCallback> (
       converter: ( Store<AppState> store) {
-        return () {
-          store.dispatch( new SignInUserAction() );
+        return ( email, password ) {
+          print( 'In[ converter ]:: email[ $email ], password[ $password ]' );
+          // Account user = new Account( email: email, password: password );
+          Account user = new Account();
+          user.email = email; user.password = password;
+          store.dispatch( new SignInUserAction( user ) );
         };
       },//end-convertor
-      builder: ( BuildContext context, add ) {
+      builder: ( BuildContext context, callback ) {
         
         return new Scaffold(
           key: _scaffoldKey,
@@ -179,7 +191,8 @@ class _LoginPageState extends State<LoginPage> {
                                           form.save();
                                           print('\t Form save called, now calling action-signin...');
                                           print('\t Email: $email');
-                                          Account user = new Account( email: email, password: password );
+                                          // Account user = new Account( email: email, password: password );
+                                          callback( email, password );
                                         }
                                       },
                                       textColor: Colors.white,

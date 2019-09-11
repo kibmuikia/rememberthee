@@ -10,12 +10,15 @@ class RegisterUserAction {
 class SignInUserAction {
   final Account user;
 
-  SignInUserAction( this.user );
-
-  @override
-  String toString() {
-    return "Account[ email : $this.user.email ]";
+  SignInUserAction( this.user ) {
+    print( this.user.email );
+    print( this.user.password );
   }
+
+  // @override
+  // String toString() {
+  //   return "Account[ $this.user ]";
+  // }
 }
 
 class SignInSuccessfulAction {

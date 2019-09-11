@@ -1,11 +1,15 @@
-import 'package:meta/meta.dart';
+// import 'package:meta/meta.dart';
 
 class Account {
 
-  final String email;
-  final String password;
+  // final String email;
+  // final String password;
 
-  Account( { @required this.email, @required this.password } );
+  String email = '';
+  String password = '';
+
+  // Account( { @required this.email, @required this.password } );
+  // Account();
 
   @override
   String toString() {
