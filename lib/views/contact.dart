@@ -19,7 +19,7 @@ class _ContactPageState extends State<ContactPage> {
       body:SingleChildScrollView( 
       child: Column(
         children: <Widget>[
-          Text("We value your feedback/sentiments", style: new TextStyle(fontSize: 17.0,fontWeight: FontWeight.w300)),
+          Text("We value your feedback", style: new TextStyle(fontSize: 14.0,letterSpacing: 2.4, fontWeight: FontWeight.w400)),
           Form(
                     key: _formKey,
                     child: Column(
@@ -99,7 +99,7 @@ class _ContactPageState extends State<ContactPage> {
                     )),
                   Card(
                   elevation: 8,
-                  color: Colors.white70,
+                  color: Colors.white,
                   margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),

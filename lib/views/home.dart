@@ -23,16 +23,17 @@ class _MyHomePageState extends State<MyHomePage> {
                margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
+                  margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   elevation: 8,
-                  color: Colors.white70,
+                  color: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                    child: Container(
                   decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/natiive.png"),
-                    fit: BoxFit.fitWidth,
-                    alignment: Alignment.topCenter,
+                    fit: BoxFit.contain,
+                    //alignment: Alignment.topCenter,
                   ),
                 ),
                 child:Padding(
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
              ),
               Card(
                   elevation: 8,
-                  color: Colors.white24,
+                  color: Colors.white,
                   child: Container(
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                     //height: MediaQuery.of(context).size.height * 0.20,
@@ -106,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
                Card(
                       elevation: 8,
-                      color: Colors.white24,
+                      color: Colors.white,
                   child: Container(
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                     height: MediaQuery.of(context).size.height * 0.20,
