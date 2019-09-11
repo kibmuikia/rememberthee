@@ -50,11 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
                    ),
                 ),
              ),
-              Card(
+            Container(
+             margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              child:Card(
                   elevation: 8,
                   color: Colors.white,
-                  child: Container(
-                    margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                     //height: MediaQuery.of(context).size.height * 0.20,
                     child: Text("It's the circle of life And it moves us all Through despair and hopeThrough faith and loveTill we find our place On the path unwinding"
                     ,style: TextStyle(
@@ -65,15 +65,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 15)),
                   ),
                 ),
-                Card(
-          elevation: 8,
-          color: Colors.white,
-          child: Container(
+                 Container(
             margin: EdgeInsets.fromLTRB(20,10,20,10),
             height: MediaQuery.of(context).size.height * 0.20,
-            child: Form(child: Column(
-              children: <Widget>[
-                Column(children: <Widget>[
+               child: Card(
+                  elevation: 8,
+                  color: Colors.white,
+                    child: Form(child: Column(
+                      children: <Widget>[
+                        Column(children: <Widget>[
                   Padding(
                     padding: EdgeInsets.all(10),
                     child:TextFormField(
@@ -107,14 +107,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ],),),
           ),
     ),
-               Card(
-                      elevation: 8,
-                      color: Colors.white,
-                  child: Container(
+              Container(
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
                     height: MediaQuery.of(context).size.height * 0.20,
-
-                    child: Row(children: <Widget>[
+                     child:Card(
+                      elevation: 8,
+                      color: Colors.white,
+                      child: Row(children: <Widget>[
                       Padding(
                         padding: EdgeInsets.all(10),
                         child:RaisedButton(  
