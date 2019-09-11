@@ -16,11 +16,32 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         drawer: MyDrawer(),
        
-        body: Column(
+        body:SingleChildScrollView(
+          child: Column(
           children: <Widget>[
-            
-    ],
-           
-  ));
+             Container(
+                width: MediaQuery.of(context).size.width*0.8,
+                height: MediaQuery.of(context).size.height * 0.40,
+                child: Card(
+                  elevation: 8,
+                  color: Colors.white70,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                   child: Container(
+                  decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("images/natiive.png"),
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.topCenter,
+                  ),
+                ),
+               ),
+                ),
+             ),
+              ],
+                    
+            ) ,
+        ) 
+       );
   } //end-Widget
 } //end-class-_MyHomePageState

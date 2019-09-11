@@ -16,14 +16,21 @@ class _ContactPageState extends State<ContactPage> {
         backgroundColor: Colors.deepOrangeAccent,
       ),
       drawer: MyDrawer(),
-      body: Column(
+      body:SingleChildScrollView( 
+      child: Column(
         children: <Widget>[
           Text("We value your feedback/sentiments", style: new TextStyle(fontSize: 17.0)),
           Form(
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        Padding(
+                        Card(
+                          elevation: 8,
+                          color: Colors.white12,
+                          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                          child: Column(
+                            children: <Widget>[
+                                   Padding(
                           padding: EdgeInsets.all(15.0),
                           child: TextFormField(
                             decoration: InputDecoration(
@@ -84,11 +91,16 @@ class _ContactPageState extends State<ContactPage> {
                                 ),
                               ]),
                         ),
+                            ],
+                          ),
+                        )
+                   
                       ],
                     )),
                   Card(
                   elevation: 8,
                   color: Colors.white70,
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Container(
@@ -97,90 +109,90 @@ class _ContactPageState extends State<ContactPage> {
                         Column(children: <Widget>[
                           Row(children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("Phone Number :",
                                   style: TextStyle(
                                       color: Colors.grey[500],
                                       fontWeight: FontWeight.w300,
                                       fontStyle: FontStyle.italic,
                                       letterSpacing: 2.0,
-                                      fontSize: 22)),
+                                      fontSize: 15)),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("0722736262",
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
                                       fontStyle: FontStyle.normal,
                                       letterSpacing: 2.0,
-                                      fontSize: 18)),
+                                      fontSize: 12)),
                             ),
                           ]),
                           Row(children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("2nd Phone Number :",
                                   style: TextStyle(
                                       color: Colors.grey[500],
                                       fontWeight: FontWeight.w300,
                                       fontStyle: FontStyle.italic,
                                       letterSpacing: 2.0,
-                                      fontSize: 22)),
+                                      fontSize: 15)),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("0729024920",
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
                                       fontStyle: FontStyle.normal,
                                       letterSpacing: 2.0,
-                                      fontSize: 18)),
+                                      fontSize: 12)),
                             ),
                           ]),
                           Row(children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("Email :",
                                   style: TextStyle(
                                   color: Colors.grey[500],
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.italic,
                                   letterSpacing: 2.0,
-                                  fontSize: 22)),
+                                  fontSize: 15)),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("info@rememberthee.com",
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
                                       fontStyle: FontStyle.normal,
                                       letterSpacing: 2.0,
-                                      fontSize: 18)),
+                                      fontSize: 12)),
                             ),
                           ]),
                           Row(children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("Location :",
                                   style: TextStyle(
                                       color: Colors.grey[500],
                                       fontWeight: FontWeight.w300,
                                       fontStyle: FontStyle.italic,
                                       letterSpacing: 2.0,
-                                      fontSize: 22)),
+                                      fontSize: 15)),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(3.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text("Kilome Road, Ojijo house",
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
                                       fontStyle: FontStyle.normal,
                                       letterSpacing: 2.0,
-                                      fontSize: 18)),
+                                      fontSize: 12)),
                             ),
                           ]),
                          
@@ -190,6 +202,7 @@ class _ContactPageState extends State<ContactPage> {
                   ),
                 ),
                      ],
+      ),
       ),
     );
   }
