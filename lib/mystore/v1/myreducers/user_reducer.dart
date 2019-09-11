@@ -7,47 +7,49 @@ import 'package:rememberthee/mystore/v1/myactions/user_actions.dart';
 
 // final userReducer = TypedReducer<bool, SignInUserAction>(_testActionReducer);
 
-Account userReducer( Account currentuser, action ) {
-
+Account userReducer(Account currentuser, action) {
   // RegisterUserAction SignInUserAction SignOutUserAction
 
-  if( action is RegisterUserAction ) {
-    print( '\t Registering user[returning received action.newUser]' );
-    // print( '\t email: $action.newUser.email' );
+  if (action is RegisterUserAction) {
+    print('\t Registering user[returning received action.newUser]');
+    // print( action.newUser );
     // return action.newUser;
     return currentuser;
 
     // end-RegisterUserAction
-  } else if( action is SignInUserAction ) {
-    print( '\t Signing-In user[returning received action.user]' );
-    print( "CurrentState[user] ::> $currentuser" );
-    print( action.user );
+  } else if (action is SignInUserAction) {
+    print('\t Signing-In user[returning received action.user]');
+    print("CurrentState[user] ::> $currentuser");
+    print(action.user);
 
     return action.user;
 
     // end-SignInUserAction
-  } else if( action is SignInSuccessfulAction ) {
-    print( '\n\t [SignInSuccessfulAction]' );
-    print( action.user );
+  } else if (action is SignInSuccessfulAction) {
+    print('\n\t [SignInSuccessfulAction]');
+    print(action.user);
     return action.user;
 
     // end-SignInSuccessfulAction
-  } else if( action is SignInFailAction ) {
-    print( '\n\t [ SignInFailAction ]' );
-    print( action.error );
-    print( currentuser );
+  } else if (action is SignInFailAction) {
+    print('\n\t [ SignInFailAction ]');
+    print(action.error);
+    print(currentuser);
     return currentuser;
 
     // end-SignInFailAction
-  } else if ( action is SignOutUserAction ) {
+  } else if (action is SignOutUserAction) {
     // print( '\t User to be signed-out: $action.currentuser' );
-    print( '\t Signing-out user[setting to default user state]' );
-    print( '\t user: $currentuser' );
+    print('\t Signing-out user[setting to default user state]');
+    print('\t user: $currentuser');
     return currentuser;
 
     // end-SignOutUserAction
-  } else {
+  } else if( action is ErrorOccurredAction ) {
+    print( '[ErrorOccurredAction]' );
+    print( action.error );
+  }
+  else {
     return currentuser;
   }
-
-}//end-userReducer
+} //end-userReducer

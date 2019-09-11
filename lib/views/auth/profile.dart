@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
+// import 'package:meta/meta.dart';
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 import '../../components/mydrawer.dart';
 
-import '../../models/user.dart';
+import '../../models/account.dart';
+import '../../mystore/v1/state.dart';
+import '../../mystore/v1/myactions/user_actions.dart';
 
 class ProfilePage extends StatefulWidget {
-  final User authenticatedUser;
-  ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
+  final Account authenticatedUser = new Account();
+  // ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
 
   @override
   _ProfilePageState createState() => new _ProfilePageState();
@@ -176,3 +179,25 @@ class _ProfilePageState extends State<ProfilePage> {
   } //end-Widget
 
 } //end-class-_ProfilePageState
+//end-class-_ProfilePageState
+
+class _ViewModel {
+  
+  final Account user;
+
+  _ViewModel( this.user );
+
+  factory _ViewModel.create(Store<AppState> store) {
+
+    Account user = store.state.user;
+
+    if( user.id != null ) {
+      return _ViewModel( user );
+    } else {
+      store.dispatch( ErrorOccurredAction( 'Invalid User, Please SignIN or SignUP' ) )
+    }
+
+  }
+
+}//end- _ViewModel
+//end- _ViewModel

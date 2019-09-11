@@ -3,7 +3,6 @@ export '../mystore/v1/state.dart';
 // import 'package:meta/meta.dart';
 
 class Account {
-
   // final String email;
   // final String password;
 
@@ -22,5 +21,4 @@ class Account {
   String toString() {
     return "Account[ id: $id, email : $email ]";
   }
-
 }

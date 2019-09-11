@@ -26,6 +26,5 @@ class User {
     return "User[email : $email ]";
   }
 
-
 // .
-}//end-class-User
+} //end-class-User
