@@ -106,8 +106,7 @@ class _LoginPageState extends State<LoginPage> {
     return new StoreConnector<AppState, OnUserAddedCallback> (
       converter: ( Store<AppState> store) {
         return ( email, password ) {
-          print( 'In[ converter ]:: email[ $email ], password[ $password ]' );
-          // Account user = new Account( email: email, password: password );
+          // print( 'In[ converter ]:: email[ $email ], password[ $password ]' );
           Account user = new Account();
           user.email = email; user.password = password;
           store.dispatch( new SignInUserAction( user ) );
@@ -189,9 +188,8 @@ class _LoginPageState extends State<LoginPage> {
                                           showMessage('Form is not valid!  Please review and correct.');
                                         } else {
                                           form.save();
-                                          print('\t Form save called, now calling action-signin...');
-                                          print('\t Email: $email');
-                                          // Account user = new Account( email: email, password: password );
+                                          // print('\t Form save called, now calling action-signin...');
+                                          // print('\t Email: $email');
                                           callback( email, password );
                                         }
                                       },

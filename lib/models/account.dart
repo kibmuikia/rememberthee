@@ -1,3 +1,5 @@
+export '../mystore/v1/state.dart';
+
 // import 'package:meta/meta.dart';
 
 class Account {
@@ -13,7 +15,7 @@ class Account {
 
   @override
   String toString() {
-    return "Account[ email : $email ]";
+    return "Account[ email : $email, password: $password ]";
   }
 
 }

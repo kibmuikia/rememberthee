@@ -1,4 +1,5 @@
-import 'package:rememberthee/mystore/v1/state.dart';
+// import 'package:rememberthee/mystore/v1/state.dart';
+import 'package:rememberthee/models/account.dart';
 import 'package:rememberthee/mystore/v1/myreducers/user_reducer.dart';
 
 AppState appReducer( AppState state, action) {

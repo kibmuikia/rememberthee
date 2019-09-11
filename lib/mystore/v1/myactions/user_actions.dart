@@ -11,14 +11,9 @@ class SignInUserAction {
   final Account user;
 
   SignInUserAction( this.user ) {
-    print( this.user.email );
-    print( this.user.password );
+    // print( "\n Payload[ user: $user ]" );
   }
 
-  // @override
-  // String toString() {
-  //   return "Account[ $this.user ]";
-  // }
 }
 
 class SignInSuccessfulAction {
