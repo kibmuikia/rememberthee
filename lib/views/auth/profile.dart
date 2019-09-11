@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:meta/meta.dart';
+import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
@@ -7,10 +7,10 @@ import '../../components/mydrawer.dart';
 
 import '../../models/account.dart';
 import '../../mystore/v1/state.dart';
-import '../../mystore/v1/myactions/user_actions.dart';
+// import '../../mystore/v1/myactions/user_actions.dart';
 
 class ProfilePage extends StatefulWidget {
-  final Account authenticatedUser = new Account();
+  // final Account authenticatedUser = new Account();
   // ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
 
   @override
@@ -23,25 +23,37 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      key: _scaffoldKey,
-      appBar: new AppBar(
-        title: new Text(widget.authenticatedUser.fname + "'s Profile"),
-        backgroundColor: Colors.deepOrangeAccent,
-      ),
-      drawer: MyDrawer(),
-      body: Stack(
-        //mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
+    return new StoreConnector<AppState, _ViewModel>(
+      converter: _ViewModel.fromStore,
+      builder: (BuildContext context, _ViewModel vm) {
+        if (vm.id == null) {
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text( 'Unauthorised User' ),
+              backgroundColor: Colors.deepOrangeAccent,
+            ),
+            drawer: MyDrawer(),
+            body: new Text( 'Please SignIn or SignUP' )
+          );
+        } else {
+          return new Scaffold(
+            key: _scaffoldKey,
+            appBar: new AppBar(
+              title: new Text( vm.user.fname + "'s Profile" ),
+              backgroundColor: Colors.deepOrangeAccent,
+            ),//end-appBar
+            drawer: MyDrawer(),//end-drawer
+            body: Stack(
+              children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
                 backgroundColor: Colors.deepOrangeAccent,
                 radius: 47.0,
-                child: Text(widget.authenticatedUser.lname +
+                child: Text(vm.user.lname +
                     "  " +
-                    widget.authenticatedUser.fname),
+                    vm.user.fname),
               ),
             ],
           ),
@@ -72,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             Padding(
                               padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.lname,
+                              child: Text(vm.user.lname,
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
@@ -94,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             Padding(
                               padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.fname,
+                              child: Text(vm.user.fname,
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
@@ -116,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             Padding(
                               padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.email,
+                              child: Text(vm.user.email,
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
@@ -138,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             Padding(
                               padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.phone,
+                              child: Text(vm.user.phone,
                                   style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.w100,
@@ -172,10 +184,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               )),
         ],
-      ),
+            )//end-body
 
-      //Text(widget.authenticatedUser.email),
-    );
+            // .
+          );//end-Scaffold
+        }
+      }//end-builder
+    );//end-return-StoreConnector
+
+    // .
   } //end-Widget
 
 } //end-class-_ProfilePageState
@@ -184,20 +201,32 @@ class _ProfilePageState extends State<ProfilePage> {
 class _ViewModel {
   
   final Account user;
+  final int id;
 
-  _ViewModel( this.user );
+  _ViewModel( { @required this.id, this.user } );
 
-  factory _ViewModel.create(Store<AppState> store) {
-
-    Account user = store.state.user;
-
-    if( user.id != null ) {
-      return _ViewModel( user );
-    } else {
-      store.dispatch( ErrorOccurredAction( 'Invalid User, Please SignIN or SignUP' ) )
-    }
-
+  static _ViewModel fromStore(Store<AppState> store) {
+    print( store.state.toString() );
+    return new _ViewModel(
+    		// We have to use the null aware operator here, so that
+    		// when there isn't a user, it just fails silently
+        // displayName: store.state.currentUser?.displayName,
+        // profileImgUrl: store.state.currentUser?.photoUrl,
+        id : store.state.user?.id
+    );
   }
+
+  // factory _ViewModel.create(Store<AppState> store) {
+
+  //   Account user = store.state.user;
+
+  //   if( user.id != null ) {
+  //     return _ViewModel( user );
+  //   } else {
+  //     store.dispatch( ErrorOccurredAction( 'Invalid User, Please SignIN or SignUP' ) )
+  //   }
+
+  // }//end-factory
 
 }//end- _ViewModel
 //end- _ViewModel

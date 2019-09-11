@@ -19,7 +19,7 @@ Account userReducer(Account currentuser, action) {
     // end-RegisterUserAction
   } else if (action is SignInUserAction) {
     print('\t Signing-In user[returning received action.user]');
-    print("CurrentState[user] ::> $currentuser");
+    print("Current/OldState[user] ::> $currentuser");
     print(action.user);
 
     return action.user;
@@ -48,6 +48,7 @@ Account userReducer(Account currentuser, action) {
   } else if( action is ErrorOccurredAction ) {
     print( '[ErrorOccurredAction]' );
     print( action.error );
+    return action.error;
   }
   else {
     return currentuser;

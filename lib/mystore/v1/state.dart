@@ -10,8 +10,9 @@ class AppState {
 
   AppState copyWith({user, bool isLoading}) {
     return new AppState(
-        user: user ?? this.user,
-        isLoading: isLoading ?? this.isLoading); //end-return
+        user: this.user ?? user,
+        isLoading: isLoading ?? this.isLoading
+        ); //end-return
   } //end-copyWith
 
   @override

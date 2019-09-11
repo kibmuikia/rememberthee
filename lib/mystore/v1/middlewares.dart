@@ -16,6 +16,7 @@ Future _processSignIn(
   print(action.user);
   print(action.user.email);
   print(action.user.password);
+  print( "fname:" + action.user.fname);
   print('\n');
 
   var url = "https://rememberthee.com/android/process_signin.php";
