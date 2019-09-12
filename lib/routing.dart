@@ -9,8 +9,6 @@ import 'views/auth/profile.dart';
 import 'views/orbituaries/obituaries.dart';
 import 'views/orbituaries/postupload.dart';
 
-// import 'models/user.dart';
-
 final routes = {
   '/': (context) => new MyHomePage(),
   // '/home': (BuildContext context) => new MyHomePage(),

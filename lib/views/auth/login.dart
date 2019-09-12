@@ -42,10 +42,10 @@ class _LoginPageState extends State<LoginPage> {
     return new StoreConnector<AppState, OnUserAddedCallback>(
       converter: (Store<AppState> store) {
         return (email, password) {
-          Account user = new Account();
-          user.email = email;
-          user.password = password;
-          store.dispatch(new SignInUserAction(user));
+          // Account user = new Account();
+          // user.email = email;
+          // user.password = password;
+          store.dispatch(new SignInUserAction(email, password));
         };
       }, //end-convertor
       builder: (BuildContext context, callback) {

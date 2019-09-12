@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'state.dart';
 import 'myactions/user_actions.dart';
+import '../../models/account.dart';
 
 List<Middleware<AppState>> createStoreMiddleware() => [
       TypedMiddleware<AppState, SignInUserAction>(_processSignIn),
@@ -11,19 +12,15 @@ List<Middleware<AppState>> createStoreMiddleware() => [
 
 Future _processSignIn(
     Store<AppState> store, SignInUserAction action, NextDispatcher next) async {
-  // await Future.sync(() => Duration(seconds: 3)); // Simulate saving the list to disk
   print('\n Middleware[ _processSignIn ]');
-  print(action.user);
-  print(action.user.email);
-  print(action.user.password);
-  print( "fname:" + action.user.fname);
-  print('\n');
+  print(action.email);
+  print(action.password);
 
   var url = "https://rememberthee.com/android/process_signin.php";
 
   try {
-    final response = await http.post(url,
-        body: {"regEmail": action.user.email, "regPwd": action.user.password});
+    final response = await http
+        .post(url, body: {"regEmail": action.email, "regPwd": action.password});
 
     if (response.body == "Invalid_User") {
       print(response.body);
@@ -33,19 +30,15 @@ Future _processSignIn(
       store.dispatch(new SignInFailAction(response.body));
     } else {
       Map userdecoded = jsonDecode(response.body);
-      var message = "Welcome, $userdecoded";
-      print(message);
-      action.user.id = int.parse(userdecoded['id']);
-      action.user.fname = userdecoded['fname'];
-      action.user.lname = userdecoded['lname'];
-      action.user.phone = userdecoded['phone'];
-      print(action.user.fname +
-          action.user.lname +
-          action.user.email +
-          action.user.phone);
-      print(action.user.id);
+      Account user = new Account();
+      user.id = int.parse(userdecoded['id']);
+      user.email = action.email;
+      user.fname = userdecoded['fname'];
+      user.lname = userdecoded['lname'];
+      user.phone = userdecoded['phone'];
+      print(user.id);
 
-      store.dispatch(new SignInSuccessfulAction(user: action.user));
+      store.dispatch(new SignInSuccessfulAction(user: user));
     }
 
     // .

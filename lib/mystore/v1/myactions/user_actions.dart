@@ -9,9 +9,11 @@ class RegisterUserAction {
 }
 
 class SignInUserAction {
-  final Account user;
+  // final Account user;
+  final String email;
+  final String password;
 
-  SignInUserAction(this.user) {
+  SignInUserAction(this.email, this.password) {
     // print( "\n Payload[ user: $user ]" );
   }
 }

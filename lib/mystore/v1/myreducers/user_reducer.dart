@@ -20,14 +20,17 @@ Account userReducer(Account currentuser, action) {
   } else if (action is SignInUserAction) {
     print('\t Signing-In user[returning received action.user]');
     print("Current/OldState[user] ::> $currentuser");
-    print(action.user);
+    print("action ::> " + action.email + " :: " + action.password);
 
-    return action.user;
+    // return action.user;
+    return currentuser;
 
     // end-SignInUserAction
   } else if (action is SignInSuccessfulAction) {
     print('\n\t [SignInSuccessfulAction]');
     print(action.user);
+    // currentuser = action.user;
+    // print( currentuser );
     return action.user;
 
     // end-SignInSuccessfulAction
@@ -45,12 +48,11 @@ Account userReducer(Account currentuser, action) {
     return currentuser;
 
     // end-SignOutUserAction
-  } else if( action is ErrorOccurredAction ) {
-    print( '[ErrorOccurredAction]' );
-    print( action.error );
+  } else if (action is ErrorOccurredAction) {
+    print('[ErrorOccurredAction]');
+    print(action.error);
     return action.error;
-  }
-  else {
+  } else {
     return currentuser;
   }
 } //end-userReducer

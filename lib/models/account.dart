@@ -19,6 +19,6 @@ class Account {
 
   @override
   String toString() {
-    return "Account[ id: $id, email : $email ]";
+    return "Account[ id: $id ]";
   }
 }

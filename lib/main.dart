@@ -9,6 +9,8 @@ import 'package:rememberthee/mystore/v1/middlewares.dart';
 
 void main() => runApp(new MyApp());
 
+final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   // final Store<AppState> store = Store<AppState>(
   //   appReducer,
@@ -23,9 +25,11 @@ class MyApp extends StatelessWidget {
   ); //end-store
 
   @override
-  Widget build(BuildContext context) => StoreProvider(
+  Widget build(BuildContext context) => StoreProvider<AppState>(
         store: store,
         child: MaterialApp(
+            navigatorKey: navigatorKey,
+            // onGenerateRoute: generateRoute,
             title: 'Rememberthee Application',
             theme: ThemeData(
               primarySwatch: Colors.blue,
