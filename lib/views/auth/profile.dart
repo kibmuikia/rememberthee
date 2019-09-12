@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
              child: CircleAvatar(
                 backgroundColor: Colors.deepOrangeAccent,
-                radius: 47.0,
+                radius: 55.0,
                // 
                 child: Text(widget.authenticatedUser.lname +
                     "  " +
@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
           Padding(
-              padding: EdgeInsets.fromLTRB(20, 10.0, 20.0, 20.0),
+              padding: EdgeInsets.fromLTRB(20, 80.0, 20.0, 20.0),
             child:  Positioned(
               top:80,
               child: Container(
@@ -155,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ]),
                           Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 RaisedButton(
                                   child: Text("Edit Profile"),

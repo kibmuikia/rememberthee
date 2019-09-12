@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                  Container(
             margin: EdgeInsets.fromLTRB(20,10,20,10),
-            height: MediaQuery.of(context).size.height * 0.20,
+            height: MediaQuery.of(context).size.height * 0.21,
                child: Card(
                   elevation: 8,
                   color: Colors.white,
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ), 
                   ),
                    Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(7),
                     child:RaisedButton(  
                     textColor: Colors.white,
                     color: Colors.lightBlueAccent,
