@@ -206,7 +206,7 @@ class _ViewModel {
   _ViewModel({this.user});
 
   static _ViewModel fromStore(Store<AppState> store) {
-    print("\n\t [ _ViewModel - fromStore ]");
+    print("\n\t [Profile][ _ViewModel - fromStore ]");
     print(store.state.toString());
     return new _ViewModel(
         // We have to use the null aware operator here, so that

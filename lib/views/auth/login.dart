@@ -13,9 +13,6 @@ import '../../mystore/v1/myactions/user_actions.dart';
 typedef OnUserAddedCallback = Function(String email, String password);
 
 class LoginPage extends StatefulWidget {
-  // final OnUserAddedCallback callback;
-  // LoginPage( this.callback );
-
   @override
   _LoginPageState createState() => new _LoginPageState();
 }
@@ -27,9 +24,6 @@ class _LoginPageState extends State<LoginPage> {
 
   String email;
   String password;
-
-  // final OnUserAddedCallback callback;
-  // _LoginPageState( this.callback );
 
   void showMessage(String message, [MaterialColor color = Colors.red]) {
     _scaffoldKey.currentState.showSnackBar(
