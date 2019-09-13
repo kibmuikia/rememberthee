@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: Colors.deepOrangeAccent,
       ),
       drawer: MyDrawer(),
-      body: Stack(
+      body: Column(
         //mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Column(
@@ -50,11 +50,8 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ],
           ),
-          Padding(
-              padding: EdgeInsets.fromLTRB(20, 80.0, 20.0, 20.0),
-            child:  Positioned(
-              top:80,
-              child: Container(
+         
+            Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.40,
                 child: Card(
@@ -177,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-              )),),
+              )
         ],
       ),
 
