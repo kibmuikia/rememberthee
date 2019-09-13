@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
+// import 'package:meta/meta.dart';
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 import '../../components/mydrawer.dart';
 
-import '../../models/user.dart';
+import '../../models/account.dart';
+import '../../mystore/v1/state.dart';
+// import '../../mystore/v1/myactions/user_actions.dart';
 
 class ProfilePage extends StatefulWidget {
-  final User authenticatedUser;
-  ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
+  // final Account authenticatedUser = new Account();
+  // ProfilePage({Key key, @required this.authenticatedUser}) : super(key: key);
 
   @override
   _ProfilePageState createState() => new _ProfilePageState();
@@ -20,166 +23,219 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      key: _scaffoldKey,
-      appBar: new AppBar(
-        title: new Text(widget.authenticatedUser.fname + "'s Profile"),
-        backgroundColor: Colors.deepOrangeAccent,
-      ),
-      drawer: MyDrawer(),
-      body: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Container(
-               decoration: new BoxDecoration(
-                  color: const Color(0xFFFFFFFF), // border color
-                  shape: BoxShape.circle,
-                  
+    return new StoreConnector<AppState, _ViewModel>(
+        converter: _ViewModel.fromStore,
+        builder: (BuildContext context, _ViewModel vm) {
+          if (vm.user == null) {
+            return new Scaffold(
+                appBar: new AppBar(
+                  title: new Text('Unauthorised User'),
+                  backgroundColor: Colors.deepOrangeAccent,
                 ),
-             child: CircleAvatar(
-                backgroundColor: Colors.deepOrangeAccent,
-                radius: 55.0,
-               // 
-                child: Text(widget.authenticatedUser.lname +
-                    "  " +
-                    widget.authenticatedUser.fname),
-              ),
-              ),
-            ],
-          ),
-         
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.40,
-                child: Card(
-                  elevation: 8,
-                  color: Colors.white70,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Container(
-                    child: Column(
+                drawer: MyDrawer(),
+                body: new Text('Please SignIn or SignUP'));
+          } else {
+            return new Scaffold(
+                key: _scaffoldKey,
+                appBar: new AppBar(
+                  title: new Text(vm.user.fname + "'s Profile"),
+                  backgroundColor: Colors.deepOrangeAccent,
+                ), //end-appBar
+                drawer: MyDrawer(), //end-drawer
+                body: Column(
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Column(children: <Widget>[
-                          Row(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text("Second Name :",
-                                  style: TextStyle(
-                                      color: Colors.grey[500],
-                                      fontWeight: FontWeight.w300,
-                                      fontStyle: FontStyle.italic,
-                                      letterSpacing: 2.0,
-                                      fontSize: 22)),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.lname,
-                                  style: TextStyle(
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w100,
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 2.0,
-                                      fontSize: 18)),
-                            ),
-                          ]),
-                          Row(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text("First Name :",
-                                  style: TextStyle(
-                                      color: Colors.grey[500],
-                                      fontWeight: FontWeight.w300,
-                                      fontStyle: FontStyle.italic,
-                                      letterSpacing: 2.0,
-                                      fontSize: 22)),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.fname,
-                                  style: TextStyle(
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w100,
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 2.0,
-                                      fontSize: 18)),
-                            ),
-                          ]),
-                          Row(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text("Email :",
-                                  style: TextStyle(
-                                      color: Colors.grey[500],
-                                      fontWeight: FontWeight.w300,
-                                      fontStyle: FontStyle.italic,
-                                      letterSpacing: 2.0,
-                                      fontSize: 22)),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.email,
-                                  style: TextStyle(
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w100,
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 2.0,
-                                      fontSize: 18)),
-                            ),
-                          ]),
-                          Row(children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text("Phone :",
-                                  style: TextStyle(
-                                      color: Colors.grey[500],
-                                      fontWeight: FontWeight.w300,
-                                      fontStyle: FontStyle.italic,
-                                      letterSpacing: 2.0,
-                                      fontSize: 22)),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Text(widget.authenticatedUser.phone,
-                                  style: TextStyle(
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w100,
-                                      fontStyle: FontStyle.normal,
-                                      letterSpacing: 2.0,
-                                      fontSize: 18)),
-                            ),
-                          ]),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                RaisedButton(
-                                  child: Text("Edit Profile"),
-                                  color: Colors.green,
-                                  textColor: Colors.white,
-                                  onPressed: () => SnackBar(
-                                      content: Text('Profile EDIT VIEW')),
-                                ),
-                                RaisedButton(
-                                  child: Text("Change Password"),
-                                  color: Colors.green,
-                                  textColor: Colors.white,
-                                  onPressed: () => SnackBar(
-                                      content: Text('Password ChangeView')),
-                                ),
-                              ])
-                        ]),
+                        new Container(
+                        decoration: new BoxDecoration(
+                            color: const Color(0xFFFFFFFF), // border color
+                            shape: BoxShape.circle,
+                            
+                          ),
+                      child: CircleAvatar(
+                          backgroundColor: Colors.deepOrangeAccent,
+                          radius: 55.0,
+                        // 
+                          child: Text(vm.user.fname +
+                              "  " +
+                              vm.user.lname),
+                        ),
+                        ),
                       ],
                     ),
-                  ),
-                ),
-              )
-        ],
-      ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.40,
+                      child: Card(
+                        elevation: 8,
+                        color: Colors.white70,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              Column(children: <Widget>[
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Second Name :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.lname,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("First Name :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.fname,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Email :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.email,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Phone :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.phone,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      RaisedButton(
+                                        child: Text("Edit Profile"),
+                                        color: Colors.green,
+                                        textColor: Colors.white,
+                                        onPressed: () => SnackBar(
+                                            content:
+                                                Text('Profile EDIT VIEW')),
+                                      ),
+                                      RaisedButton(
+                                        child: Text("Change Password"),
+                                        color: Colors.green,
+                                        textColor: Colors.white,
+                                        onPressed: () => SnackBar(
+                                            content: Text(
+                                                'Password ChangeView')),
+                                      ),
+                                    ])
+                              ]),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )//end-Container
+                  ],
+                ) //end-body
 
-      //Text(widget.authenticatedUser.email),
-    );
+                // .
+                ); //end-Scaffold
+          }
+        } //end-builder
+        ); //end-return-StoreConnector
+
+    // .
   } //end-Widget
 
 } //end-class-_ProfilePageState
+//end-class-_ProfilePageState
+
+class _ViewModel {
+  final Account user;
+  // final int id;
+
+  // _ViewModel( { @required this.id, this.user } );
+  _ViewModel({this.user});
+
+  static _ViewModel fromStore(Store<AppState> store) {
+    print("\n\t [Profile][ _ViewModel - fromStore ]");
+    print(store.state.toString());
+    return new _ViewModel(
+        // We have to use the null aware operator here, so that
+        // when there isn't a user, it just fails silently
+        // displayName: store.state.currentUser?.displayName,
+        // profileImgUrl: store.state.currentUser?.photoUrl,
+        // id : store.state.user?.id,
+        user: store.state?.user);
+  }
+
+  // factory _ViewModel.create(Store<AppState> store) {
+
+  //   Account user = store.state.user;
+
+  //   if( user.id != null ) {
+  //     return _ViewModel( user );
+  //   } else {
+  //     store.dispatch( ErrorOccurredAction( 'Invalid User, Please SignIN or SignUP' ) )
+  //   }
+
+  // }//end-factory
+
+} //end- _ViewModel
+//end- _ViewModel

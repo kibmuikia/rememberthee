@@ -14,7 +14,7 @@ description: An easier way to inform people of the loss of your loved ones.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,6 +25,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   http: any
   intl: ^0.15.7
+  redux: 3.0.0
+  flutter_redux: 0.5.2
+  #redux_logging: ^0.1.4
+
   # graphql_flutter 1.0.0+4
   image_picker_modern: ^0.4.12+3
 dev_dependencies:
