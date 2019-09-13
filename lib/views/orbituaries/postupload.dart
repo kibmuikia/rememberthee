@@ -24,20 +24,20 @@ class _UploadPageState extends State<UploadPage> {
   Obituary ob = new Obituary();
   var dof;
     File _image;
-    File _image1;
-    File _image2;
+    // File _image1;
+    // File _image2;
     
 
 
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-     var image1 = await ImagePicker.pickImage(source: ImageSource.gallery);
-    var image2 = await ImagePicker.pickImage(source: ImageSource.gallery);
+    //  var image1 = await ImagePicker.pickImage(source: ImageSource.gallery);
+    // var image2 = await ImagePicker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       _image = image;
-      _image1 = image1;
-      _image2 = image2;
+      // _image1 = image1;
+      // _image2 = image2;
     });
   }
 
@@ -203,26 +203,26 @@ class _UploadPageState extends State<UploadPage> {
                         tooltip: 'Pick Image',
                         child: Icon(Icons.add_a_photo),
                       ),
-                    Container(
-                        child: _image1 == null
-                            ? Text('No image selected.')
-                            : Image.file(_image),
-                      ),
-                       FloatingActionButton(
-                        onPressed: getImage,
-                        tooltip: 'Pick Image',
-                        child: Icon(Icons.add_a_photo),
-                      ),
-                      Container(
-                        child: _image2 == null
-                            ? Text('No image selected.')
-                            : Image.file(_image),
-                      ),
-                       FloatingActionButton(
-                        onPressed: getImage,
-                        tooltip: 'Pick Image',
-                        child: Icon(Icons.add_a_photo),
-                      ),
+                    // Container(
+                    //     child: _image1 == null
+                    //         ? Text('No image selected.')
+                    //         : Image.file(_image),
+                    //   ),
+                    //    FloatingActionButton(
+                    //     onPressed: getImage,
+                    //     tooltip: 'Pick Image',
+                    //     child: Icon(Icons.add_a_photo),
+                    //   ),
+                    //   Container(
+                    //     child: _image2 == null
+                    //         ? Text('No image selected.')
+                    //         : Image.file(_image),
+                    //   ),
+                    //    FloatingActionButton(
+                    //     onPressed: getImage,
+                    //     tooltip: 'Pick Image',
+                    //     child: Icon(Icons.add_a_photo),
+                    //   ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Row(
