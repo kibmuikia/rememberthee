@@ -42,147 +42,155 @@ class _ProfilePageState extends State<ProfilePage> {
                   backgroundColor: Colors.deepOrangeAccent,
                 ), //end-appBar
                 drawer: MyDrawer(), //end-drawer
-                body: Stack(
+                body: Column(
                   children: <Widget>[
-                    Row(
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        CircleAvatar(
+                        new Container(
+                        decoration: new BoxDecoration(
+                            color: const Color(0xFFFFFFFF), // border color
+                            shape: BoxShape.circle,
+                            
+                          ),
+                      child: CircleAvatar(
                           backgroundColor: Colors.deepOrangeAccent,
-                          radius: 47.0,
-                          child: Text(vm.user.lname + "  " + vm.user.fname),
+                          radius: 55.0,
+                        // 
+                          child: Text(vm.user.fname +
+                              "  " +
+                              vm.user.lname),
+                        ),
                         ),
                       ],
                     ),
-                    Padding(
-                        padding: EdgeInsets.fromLTRB(20, 10.0, 20.0, 20.0),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.40,
+                      child: Card(
+                        elevation: 8,
+                        color: Colors.white70,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
                         child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.40,
-                          child: Card(
-                            elevation: 8,
-                            color: Colors.white70,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Container(
-                              child: Column(
-                                children: <Widget>[
-                                  Column(children: <Widget>[
-                                    Row(children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text("Second Name :",
-                                            style: TextStyle(
-                                                color: Colors.grey[500],
-                                                fontWeight: FontWeight.w300,
-                                                fontStyle: FontStyle.italic,
-                                                letterSpacing: 2.0,
-                                                fontSize: 22)),
+                          child: Column(
+                            children: <Widget>[
+                              Column(children: <Widget>[
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Second Name :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.lname,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("First Name :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.fname,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Email :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.email,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text("Phone :",
+                                        style: TextStyle(
+                                            color: Colors.grey[500],
+                                            fontWeight: FontWeight.w300,
+                                            fontStyle: FontStyle.italic,
+                                            letterSpacing: 2.0,
+                                            fontSize: 22)),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Text(vm.user.phone,
+                                        style: TextStyle(
+                                            color: Colors.black87,
+                                            fontWeight: FontWeight.w100,
+                                            fontStyle: FontStyle.normal,
+                                            letterSpacing: 2.0,
+                                            fontSize: 18)),
+                                  ),
+                                ]),
+                                Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      RaisedButton(
+                                        child: Text("Edit Profile"),
+                                        color: Colors.green,
+                                        textColor: Colors.white,
+                                        onPressed: () => SnackBar(
+                                            content:
+                                                Text('Profile EDIT VIEW')),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text(vm.user.lname,
-                                            style: TextStyle(
-                                                color: Colors.black87,
-                                                fontWeight: FontWeight.w100,
-                                                fontStyle: FontStyle.normal,
-                                                letterSpacing: 2.0,
-                                                fontSize: 18)),
+                                      RaisedButton(
+                                        child: Text("Change Password"),
+                                        color: Colors.green,
+                                        textColor: Colors.white,
+                                        onPressed: () => SnackBar(
+                                            content: Text(
+                                                'Password ChangeView')),
                                       ),
-                                    ]),
-                                    Row(children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text("First Name :",
-                                            style: TextStyle(
-                                                color: Colors.grey[500],
-                                                fontWeight: FontWeight.w300,
-                                                fontStyle: FontStyle.italic,
-                                                letterSpacing: 2.0,
-                                                fontSize: 22)),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text(vm.user.fname,
-                                            style: TextStyle(
-                                                color: Colors.black87,
-                                                fontWeight: FontWeight.w100,
-                                                fontStyle: FontStyle.normal,
-                                                letterSpacing: 2.0,
-                                                fontSize: 18)),
-                                      ),
-                                    ]),
-                                    Row(children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text("Email :",
-                                            style: TextStyle(
-                                                color: Colors.grey[500],
-                                                fontWeight: FontWeight.w300,
-                                                fontStyle: FontStyle.italic,
-                                                letterSpacing: 2.0,
-                                                fontSize: 22)),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text(vm.user.email,
-                                            style: TextStyle(
-                                                color: Colors.black87,
-                                                fontWeight: FontWeight.w100,
-                                                fontStyle: FontStyle.normal,
-                                                letterSpacing: 2.0,
-                                                fontSize: 18)),
-                                      ),
-                                    ]),
-                                    Row(children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text("Phone :",
-                                            style: TextStyle(
-                                                color: Colors.grey[500],
-                                                fontWeight: FontWeight.w300,
-                                                fontStyle: FontStyle.italic,
-                                                letterSpacing: 2.0,
-                                                fontSize: 22)),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.all(3.0),
-                                        child: Text(vm.user.phone,
-                                            style: TextStyle(
-                                                color: Colors.black87,
-                                                fontWeight: FontWeight.w100,
-                                                fontStyle: FontStyle.normal,
-                                                letterSpacing: 2.0,
-                                                fontSize: 18)),
-                                      ),
-                                    ]),
-                                    Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          RaisedButton(
-                                            child: Text("Edit Profile"),
-                                            color: Colors.green,
-                                            textColor: Colors.white,
-                                            onPressed: () => SnackBar(
-                                                content:
-                                                    Text('Profile EDIT VIEW')),
-                                          ),
-                                          RaisedButton(
-                                            child: Text("Change Password"),
-                                            color: Colors.green,
-                                            textColor: Colors.white,
-                                            onPressed: () => SnackBar(
-                                                content: Text(
-                                                    'Password ChangeView')),
-                                          ),
-                                        ])
-                                  ]),
-                                ],
-                              ),
-                            ),
+                                    ])
+                              ]),
+                            ],
                           ),
-                        )),
+                        ),
+                      ),
+                    )//end-Container
                   ],
                 ) //end-body
 

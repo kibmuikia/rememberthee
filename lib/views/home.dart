@@ -15,127 +15,135 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.deepOrangeAccent,
         ),
         drawer: MyDrawer(),
-        // drawer: new Drawer(
-        //   child: new ListView(
-        //     children: <Widget>[
-        //       new DrawerHeader(
-        //         decoration: BoxDecoration(
-        //           gradient: LinearGradient(
-        //               colors: <Color>[Colors.deepOrange, Colors.orangeAccent]),
-        //         ),
-        //         child: Container(
-        //           child: Column(
-        //             children: <Widget>[
-        //               Material(
-        //                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
-        //                 elevation: 10,
-        //                 child: Image.asset('assets/remthee.jpg',
-        //                     width: 100, height: 100),
-        //               ),
-        //               Padding(
-        //                 padding: EdgeInsets.all(8.0),
-        //                 child: Text(
-        //                   'Rememberthee',
-        //                 ),
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //       new ListTile(
-        //         title: new Text("Welcome To Rememberthee"),
-        //       ),
-        //       new Divider(),
-        //       new ListTile(
-        //           title: new Text("Home"),
-        //           trailing: new Icon(Icons.home),
-        //           onTap: () {
-        //             Navigator.of(context).pop();
-        //             Navigator.of(context).pushNamed('/');
-        //           }),
-        //       new ExpansionTile(
-        //           title: Text("Obituary"),
-        //           trailing: new Icon(Icons.folder),
-        //           children: <Widget>[
-        //             ListTile(
-        //                 title: Text("View Obituaries",
-        //                     textAlign: TextAlign.center),
-        //                 trailing: new Icon(Icons.view_list),
-        //                 onTap: () {
-        //                   Navigator.of(context).pop();
-        //                   Navigator.of(context).pushNamed('/view');
-        //                 }),
-        //             ListTile(
-        //                 title:
-        //                     Text("Post Obituary", textAlign: TextAlign.center),
-        //                 trailing: new Icon(Icons.cloud_upload),
-        //                 onTap: () {
-        //                   Navigator.of(context).pop();
-        //                   Navigator.of(context).pushNamed('/upload');
-        //                 }),
-        //           ]),
-        //       new ExpansionTile(
-        //         title: Text("Accounts"),
-        //         trailing: new Icon(Icons.account_circle),
-        //         children: <Widget>[
-        //           ListTile(
-        //               title: Text(
-        //                 "Register",
-        //                 textAlign: TextAlign.center,
-        //               ),
-        //               trailing: new Icon(Icons.account_box),
-        //               onTap: () {
-        //                 Navigator.of(context).pop();
-        //                 Navigator.of(context).pushNamed('/register');
-        //               }),
-        //           ListTile(
-        //               title: Text(
-        //                 "Login",
-        //                 textAlign: TextAlign.center,
-        //               ),
-        //               trailing: new Icon(Icons.account_circle),
-        //               onTap: () {
-        //                 Navigator.of(context).pop();
-        //                 Navigator.of(context).pushNamed('/login');
-        //               }),
-        //           ListTile(
-        //               title: Text(
-        //                 "Profile",
-        //                 textAlign: TextAlign.center,
-        //               ),
-        //               trailing: new Icon(Icons.person_outline),
-        //               onTap: () {
-        //                 Navigator.of(context).pop();
-        //                 Navigator.of(context).pushNamed('/profile');
-        //               }),
-        //           ListTile(
-        //             title: Text(
-        //               "Logout",
-        //               textAlign: TextAlign.center,
-        //             ),
-        //             trailing: new Icon(Icons.phonelink_erase),
-        //           ),
-        //         ],
-        //       ),
-        //       new ListTile(
-        //           title: new Text("About"),
-        //           trailing: new Icon(Icons.info),
-        //           onTap: () {
-        //             Navigator.of(context).pop();
-        //             Navigator.of(context).pushNamed('/about');
-        //           }),
-        //       new ListTile(
-        //           title: new Text("Contact"),
-        //           trailing: new Icon(Icons.phone),
-        //           onTap: () {
-        //             Navigator.of(context).pop();
-        //             Navigator.of(context).pushNamed('/contact');
-        //           }),
-        //     ],
-        //   ),
-        // ),
-        body: new Center(
-          child: new Text("Home Page", style: new TextStyle(fontSize: 35.0)),
-        ));
+       
+        body:SingleChildScrollView(
+          child: Column(
+          children: <Widget>[
+             Container(
+               margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
+               width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.40,
+                child: Card(
+                  //margin: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  elevation: 8,
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                   child: Container(
+                    
+                  decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/natiive.png"),
+                    fit: BoxFit.cover,
+                    //alignment: Alignment.topCenter,
+                  ),
+                ),
+                child:Padding(
+                   padding: const EdgeInsets.only(top: 50.0),
+                   child: Column(
+                    children: <Widget>[
+                        Text("RememberThee", style: new TextStyle(fontSize: 20.0)),
+                        Text("Where life stories go on", style: new TextStyle(fontSize: 17.0)),
+                    ],
+                  ),
+               ),
+                   ),
+                ),
+             ),
+            Container(
+             margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              child:Card(
+                  elevation: 8,
+                  color: Colors.white,
+                    //height: MediaQuery.of(context).size.height * 0.20,
+                    child: Text("It's the circle of life And it moves us all Through despair and hopeThrough faith and loveTill we find our place On the path unwinding"
+                    ,style: TextStyle(
+                        color: Colors.grey[500],
+                        fontWeight: FontWeight.w300,
+                        fontStyle: FontStyle.italic,
+                        letterSpacing: 2.0,
+                        fontSize: 15)),
+                  ),
+                ),
+                 Container(
+            margin: EdgeInsets.fromLTRB(20,10,20,10),
+            height: MediaQuery.of(context).size.height * 0.21,
+               child: Card(
+                  elevation: 8,
+                  color: Colors.white,
+                    child: Form(child: Column(
+                      children: <Widget>[
+                        Column(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child:TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Enter Name',
+                      hoverColor: Colors.lightBlueAccent,
+                      border: OutlineInputBorder(),
+                    ),
+                    
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Name is null';
+                      }
+                      return null;
+                    },
+                    
+                  ), 
+                  ),
+                   Padding(
+                    padding: EdgeInsets.all(7),
+                    child:RaisedButton(  
+                    textColor: Colors.white,
+                    color: Colors.lightBlueAccent,
+                    child: Text('Search'),
+                     onPressed: () => SnackBar(
+                                      content: Text('Searching')),
+                                
+                    ),
+                  ),
+                ],)
+              ],),),
+          ),
+    ),
+              Container(
+                    margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    height: MediaQuery.of(context).size.height * 0.17,
+                     child:Card(
+                      elevation: 8,
+                      color: Colors.white,
+                      child: Row(children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child:RaisedButton(  
+                        textColor: Colors.white,
+                        color: Colors.lightBlueAccent,
+                        child: Text('Login'),
+                          onPressed: () => SnackBar(
+                                          content: Text('Searching')),
+                                    
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child:RaisedButton(  
+                        textColor: Colors.white,
+                        color: Colors.lightBlueAccent,
+                        child: Text('View Obituaries'),
+                          onPressed: () => SnackBar(
+                                          content: Text('Searching')),
+                                    
+                        ),
+                      ),
+                    ],)
+                  ),
+               ),
+              
+              ],
+                    
+            ) ,
+        ) 
+       );
   } //end-Widget
 } //end-class-_MyHomePageState

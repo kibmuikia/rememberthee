@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:image_picker_modern/image_picker_modern.dart';
 
 import '../../components/mydrawer.dart';
 
@@ -20,6 +23,23 @@ class _UploadPageState extends State<UploadPage> {
   User confirmedUser = new User();
   Obituary ob = new Obituary();
   var dof;
+    File _image;
+    File _image1;
+    File _image2;
+    
+
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+     var image1 = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var image2 = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = image;
+      _image1 = image1;
+      _image2 = image2;
+    });
+  }
 
   void processObituary() async {
     var url = "https://rememberthee.com/android/process_obituary.php";
@@ -83,13 +103,14 @@ class _UploadPageState extends State<UploadPage> {
         child: SingleChildScrollView(
           child: Container(
             alignment: AlignmentDirectional(0.0, 0.0),
-            child: Container(
-                color: Colors.white70,
-                margin: new EdgeInsets.symmetric(
-                  vertical: 40.0,
-                  horizontal: 20.0,
-                ),
-                child: Form(
+            child: Column(
+                //color: Colors.white70,
+                //margin: new EdgeInsets.symmetric(
+                  //vertical: 40.0,
+                 // horizontal: 20.0,
+               // ),
+               children: <Widget>[
+                 Form(
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
@@ -172,10 +193,40 @@ class _UploadPageState extends State<UploadPage> {
                             },
                           ),
                         ),
+                        Container(
+                        child: _image == null
+                            ? Text('No image selected.')
+                            : Image.file(_image),
+                      ),
+                       FloatingActionButton(
+                        onPressed: getImage,
+                        tooltip: 'Pick Image',
+                        child: Icon(Icons.add_a_photo),
+                      ),
+                    Container(
+                        child: _image1 == null
+                            ? Text('No image selected.')
+                            : Image.file(_image),
+                      ),
+                       FloatingActionButton(
+                        onPressed: getImage,
+                        tooltip: 'Pick Image',
+                        child: Icon(Icons.add_a_photo),
+                      ),
+                      Container(
+                        child: _image2 == null
+                            ? Text('No image selected.')
+                            : Image.file(_image),
+                      ),
+                       FloatingActionButton(
+                        onPressed: getImage,
+                        tooltip: 'Pick Image',
+                        child: Icon(Icons.add_a_photo),
+                      ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 RaisedButton(
                                   color: Colors.green,
@@ -195,7 +246,8 @@ class _UploadPageState extends State<UploadPage> {
                               ]),
                         ),
                       ],
-                    ))),
+                    ))
+                    ],),
           ),
         ),
       ),
